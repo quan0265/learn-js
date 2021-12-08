@@ -1,0 +1,42 @@
+<!-- 
+
+- some: 
+	- return true/fasle
+	- Tất cả element thỏa mãn điều kiện thì trả về true
+
+ -->
+
+<script type="text/javascript">
+	
+	var courses= [
+		{ name: 'php', conin: 400, isFinish: true},
+		{ name: 'html', conin: 100, isFinish: false},
+		{ name: 'css', conin: 200, isFinish: false},
+	]
+
+	// kiểm true/false ít nhất có 1 khóa học xong
+	var result= courses.every(function(course, index, array) {
+		return course.isFinish === false;
+	})
+	console.log(result);
+
+
+
+	Array.prototype.every2= function(callback) {
+		for (index in this) {
+			if(this.hasOwnProperty(index)) {
+				let result= callback(this[index], index, this)
+				if(result === false){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	var result= courses.every2(function(course, index, array) {
+		return course.isFinish === false;
+	})
+	console.log(result);
+
+</script>

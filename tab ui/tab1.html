@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab</title>
+</head>
+<style type="text/css">
+.tab .tab-item.active {
+    background: orange;
+}
+
+
+
+.content-item {
+    display: none;
+}
+
+.content-item.active {
+    display: block;
+}
+</style>
+
+<body>
+    <div class="tab">
+        <button class="tab-item active">a</button>
+        <button class="tab-item">b</button>
+        <button class="tab-item">c</button>
+    </div>
+    <div class="content">
+        <div class="content-item active">a</div>
+        <div class="content-item">b</div>
+        <div class="content-item">c</div>
+    </div>
+    <script type="text/javascript">
+    const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
+
+    const tabs = $$('.tab-item');
+    const contents = $$('.content-item');
+
+    const tabActive = $('.tab-item.active');
+    const line = $('.tabs .line');
+
+    // line.style.left= tabActive.offsetLeft + 'px';
+    // line.style.width= tabActive.offsetWidth + 'px';
+
+    function tab1() {
+        tabs.forEach((tab, index) => {
+            const content = contents[index];
+            // console.log(tab);
+            tab.onclick = function() {
+                $('.tab-item.active').classList.remove('active');
+                $('.content-item.active').classList.remove('active');
+
+                this.classList.add('active');
+                content.classList.add('active');
+            }
+        });
+    }
+
+    function tab2() {
+        $$('.tab-item').forEach((tab, index) => {
+            const content = contents[index];
+
+            tab.onclick = function() {
+                $('.tab-item.active').classList.remove('active');
+                $('.content-item.active').classList.remove('active');
+
+                this.classList.add('active');
+                content.classList.add('active');
+            }
+        })
+    }
+
+    tab2();
+var arr= [1, 2, 4];
+
+console.log(arr.forEach((arr, index) => {
+	
+}));
+
+    // document.querySelectorAll('tab-item').classList.remove('active');
+
+
+
+    // console.log($$('.tab-item'));
+    </script>
+</body>
+
+</html>

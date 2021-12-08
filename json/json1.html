@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>json</title>
+</head>
+<body>
+<button class="button">abc</button>
+
+
+<script type="text/javascript">
+	// let vars= [
+	// 		{
+	// 			"id": "12333",
+	// 			"name": "abc"
+	// 		},
+	// 		{
+	// 			"id": "12333",
+	// 			"name": "abc"
+	// 		}
+	// 	];
+		// console.log(vars);
+
+	var vars= [
+				  {
+				    "id": "279",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-44107247215966123359076.png",
+				    "style": "style1",
+				    "color": "white",
+				    "size": "M",
+				    "price": "19.95",
+				    "compare_price": "39.00"
+				  },
+				  {
+				    "id": "280",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-102954826959576839974102.png",
+				    "style": "style1",
+				    "color": "black",
+				    "size": "M",
+				    "price": "19.95",
+				    "compare_price": "37.00"
+				  },
+				  {
+				    "id": "281",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-321792317299063463629823.png",
+				    "style": "style1",
+				    "color": "black",
+				    "size": "L",
+				    "price": "19.95",
+				    "compare_price": "35.00"
+				  },
+				  {
+				    "id": "282",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-397075494665050744593957.png",
+				    "style": "style2",
+				    "color": "red",
+				    "size": "L",
+				    "price": "20.45",
+				    "compare_price": "32.00"
+				  },
+				  {
+				    "id": "283",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-96994046183218927580839.png",
+				    "style": "style2",
+				    "color": "blue",
+				    "size": "L",
+				    "price": "20.45",
+				    "compare_price": "32.00"
+				  },
+				  {
+				    "id": "284",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-20053440780614486714671.png",
+				    "style": "style2",
+				    "color": "blue",
+				    "size": "XL",
+				    "price": "20.45",
+				    "compare_price": "37.00"
+				  }
+				];
+
+	console.log(vars);	
+	//hide style
+	vars= [
+				  {
+				    "id": "279",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-44107247215966123359076.png",
+				    "style": "",
+				    "color": "white",
+				    "size": "M",
+				    "price": "19.95",
+				    "compare_price": "39.00"
+				  },
+				  {
+				    "id": "280",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-102954826959576839974102.png",
+				    "style": "",
+				    "color": "black",
+				    "size": "M",
+				    "price": "19.95",
+				    "compare_price": "37.00"
+				  },
+				  {
+				    "id": "281",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-321792317299063463629823.png",
+				    "style": "",
+				    "color": "black",
+				    "size": "L",
+				    "price": "19.95",
+				    "compare_price": "35.00"
+				  },
+				  {
+				    "id": "282",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-397075494665050744593957.png",
+				    "style": "",
+				    "color": "red",
+				    "size": "L",
+				    "price": "20.45",
+				    "compare_price": "32.00"
+				  },
+				  {
+				    "id": "283",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-96994046183218927580839.png",
+				    "style": "",
+				    "color": "blue",
+				    "size": "L",
+				    "price": "20.45",
+				    "compare_price": "32.00"
+				  },
+				  {
+				    "id": "284",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-20053440780614486714671.png",
+				    "style": "",
+				    "color": "blue",
+				    "size": "XL",
+				    "price": "20.45",
+				    "compare_price": "37.00"
+				  }
+				];
+
+	//hide size
+	vars= [
+				  {
+				    "id": "279",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-44107247215966123359076.png",
+				    "style": "style1",
+				    "color": "white",
+				    "size": "",
+				    "price": "19.95",
+				    "compare_price": "39.00"
+				  },
+				  {
+				    "id": "280",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-102954826959576839974102.png",
+				    "style": "style1",
+				    "color": "black",
+				    "size": "",
+				    "price": "19.95",
+				    "compare_price": "37.00"
+				  },
+				  {
+				    "id": "281",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-321792317299063463629823.png",
+				    "style": "style1",
+				    "color": "black",
+				    "size": "",
+				    "price": "19.95",
+				    "compare_price": "35.00"
+				  },
+				  {
+				    "id": "282",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-397075494665050744593957.png",
+				    "style": "style2",
+				    "color": "red",
+				    "size": "",
+				    "price": "20.45",
+				    "compare_price": "32.00"
+				  },
+				  {
+				    "id": "283",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-96994046183218927580839.png",
+				    "style": "style2",
+				    "color": "blue",
+				    "size": "",
+				    "price": "20.45",
+				    "compare_price": "32.00"
+				  },
+				  {
+				    "id": "284",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-20053440780614486714671.png",
+				    "style": "style2",
+				    "color": "blue",
+				    "size": "",
+				    "price": "20.45",
+				    "compare_price": "37.00"
+				  }
+				];
+
+	// hide color
+	vars= [
+				  {
+				    "id": "279",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-44107247215966123359076.png",
+				    "style": "style1",
+				    "color": "",
+				    "size": "M",
+				    "price": "19.95",
+				    "compare_price": "39.00"
+				  },
+				  {
+				    "id": "280",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-102954826959576839974102.png",
+				    "style": "style1",
+				    "color": "",
+				    "size": "M",
+				    "price": "19.95",
+				    "compare_price": "37.00"
+				  },
+				  {
+				    "id": "281",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-321792317299063463629823.png",
+				    "style": "style1",
+				    "color": "",
+				    "size": "L",
+				    "price": "19.95",
+				    "compare_price": "35.00"
+				  },
+				  {
+				    "id": "282",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-397075494665050744593957.png",
+				    "style": "style2",
+				    "color": "",
+				    "size": "L",
+				    "price": "20.45",
+				    "compare_price": "32.00"
+				  },
+				  {
+				    "id": "283",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-96994046183218927580839.png",
+				    "style": "style2",
+				    "color": "",
+				    "size": "L",
+				    "price": "20.45",
+				    "compare_price": "32.00"
+				  },
+				  {
+				    "id": "284",
+				    "products_id": "113",
+				    "name": "OF ALL THE BUTTS IN THE WORLD YOURS IS MY FAVORITE MUG, PERSONALIZED VALENTINE'S DAY MUG, VALENTINE'S GIFTS, GIRLFRIEND MUG, GIFT FOR HER",
+				    "images": "35-2021-06-12-20053440780614486714671.png",
+				    "style": "style2",
+				    "color": "",
+				    "size": "XL",
+				    "price": "20.45",
+				    "compare_price": "37.00"
+				  }
+				];
+
+
+	function objToArray(obj){
+	    let arr= [];
+	    let keys= Object.keys(obj);
+	    let values= Object.values(obj);
+	    for(let i=0; i<keys.length; i++){
+	        arr[keys[i]]= values[i];
+	    }
+	    return arr;
+	}
+
+	function arrayStyle(obj){
+		var arr=[];
+		for(let i=0; i<obj.length; i++){
+			// console.log(obj[i].style);
+			let value= obj[i].style;
+			// console.log(arr.indexOf());
+			if(arr.indexOf(value) === -1){
+				arr.push(value);
+			}
+		}
+		return arr;
+	}
+	// let arr_style= arrayStyle(vars);
+	// console.log(arr_style);
+
+	function arrayColor(obj, style=null){
+		let arr= [];
+		if(style==null){
+			for(let i=0; i<obj.length; i++){
+				let value= obj[i].color;
+				if(arr.indexOf(value) === -1){
+					arr.push(value);
+				}
+			}
+		}
+		else{
+			for(let i=0; i<obj.length; i++){
+				if(obj[i].style == style){
+					let value= obj[i].color;
+					if(arr.indexOf(value) === -1){
+						arr.push(value);
+					}
+				}
+			}
+		}
+		return arr;
+	}
+	// let arr_color= arrayColor(vars, 'style2');
+	// console.log(arr_color);
+
+	function arraySize(obj, color=null, style=null){
+		let arr= [];
+		if(style==null && color == null){
+			obj.forEach((item, index)=> {
+				let value= item.size;
+				if(arr.indexOf(value) === -1){
+					arr.push(value);
+				}
+			});
+		}
+		else if(style == null && color != null){
+			obj.forEach((item, index)=>{
+				if(item.color == color){
+					let value= item.size;
+					if(arr.indexOf(value) === -1){
+						arr.push(value);
+					}
+				}
+			})
+		}
+		else{
+			obj.forEach((item, index)=>{
+				if(item.color == color && item.style == style){
+					let value= item.size;
+					if(arr.indexOf(value) === -1){
+						arr.push(value);
+					}
+				}
+			})
+		}
+		return arr;
+	}
+
+	// arraySize(vars);
+	// console.log(arraySize(vars, 'blue', 'style2'));
+
+	//return 1 obj from array obj by obj.id
+	var obj_id={};
+	function objById(obj, id){
+		// let arr= [];
+		obj_id={};
+		obj.forEach((item, index)=> {
+			if(item.id == id){
+				let keys= Object.keys(obj[index]);
+			    let values= Object.values(obj[index]);
+			    for(let i=0; i<keys.length; i++){
+			        obj_id[keys[i]]= values[i];
+			    }
+			}
+		})
+	}
+
+	// console.log(objById(vars, 280));
+	objById(vars, 280);
+	console.log(obj_id);
+	// console.log(vars);
+	function arrayById(obj, id){
+		let arr= [];
+		obj.forEach((item, index)=>{
+			if(item.id == id){
+				let keys= Object.keys(obj[index]);
+			    let values= Object.values(obj[index]);
+			    for(let i=0; i<keys.length; i++){
+			        arr[keys[i]]= values[i];
+			    }
+			}
+		})
+		return arr;
+	}
+
+	// console.log(arrayById(vars, 280)['id']);
+	// arr1= [1];
+	// arr2=[1]
+	// if(arr1[0] && arr2[0]){
+	// 	console.log(11);
+	// }
+	// else if(arr1[0] && arr2[0] !== null){
+	// 	console.log(22);
+	// }
+	// else{
+	// 	console.log(33);
+	// }
+
+	var array_style= [], array_color= [], array_size= [];
+
+	array_style= arrayStyle(vars);
+
+	if(array_style[0]){
+		array_color= arrayColor(vars, array_style[0]);
+	}
+	else{
+		array_color= arrayColor(vars, null);
+	}
+
+	if(array_style[0] && array_color[0]){
+		array_size= arraySize(vars);
+	}
+	else if(array_style[0] && array_color[0] !== null){
+		array_size= arraySize(vars, array_color[0], null);
+	}
+	else{
+		array_size= arraySize(vars, null, null);
+	}
+
+	console.log(array_size);
+
+	
+	let arr=[];
+	arr.text= [];
+	arr.text.push('a');
+	console.log(arr);
+
+</script>
+</body>
+</html>

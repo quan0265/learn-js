@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>preview and delete</title>
+	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="image-uploader.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="image-uploader.js"></script>
+
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+
+
+
+
+
+<form method="POST" name="form-example-1" id="form-example-1" enctype="multipart/form-data">
+
+    <div class="input-field">
+        <input type="text" name="name-1" id="name-1">
+        <label for="name-1">Name</label>
+    </div>
+
+    <div class="input-field">
+        <input type="text" name="description-1" id="description-1">
+        <label for="description-1">Description</label>
+    </div>
+
+    <div class="input-field">
+        <label class="active">Photos</label>
+        <div class="input-images-1" style="padding-top: .5rem;"></div>
+    </div>
+
+    <button>Submit and display data</button>
+
+</form>
+
+
+
+
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.input-images-1').imageUploader();
+
+		$('.input-images-1').on('change', 'input', function(){
+			alert(22);
+			console.log(this.files);
+		})
+	})
+</script>
+
+
+
+</body>
+</html>

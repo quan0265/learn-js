@@ -1,0 +1,53 @@
+<!-- 
+- map: 
+	- Create một mảng mới bằng cách thực hiện function trên mỗi phần tử của mảng
+	- Không thay đổi mảng ban đầu
+	- Hay dùng trong render
+
+
+
+ -->
+
+<div id="root"></div>
+
+ <script type="text/javascript">
+ 	
+ 	let array= [
+		{id: 1, name: 'php', coin: 0},
+		{id: 2, name: 'html', coin: 200},
+		{id: 3, name: 'css', coin: 500},
+		{id: 3, name: 'python', coin: 0}
+	]
+
+	function arrayHandler(item, index, originArray){
+		// originArray là array gốc
+		// return originArray;
+		// return item;
+		return {
+			index: index,
+			id: item.id,
+			originArray: originArray
+		}
+	}
+
+	var newArray= array.map(arrayHandler);
+
+	console.log(newArray);
+
+
+	// example render
+
+	var new1= array.map(function(item, index){
+		return `<h2>${item.name}</h2>`;
+	})
+
+	console.log(new1.join(''));
+	
+	document.querySelector('#root').innerHTML= new1.join('');
+
+
+
+
+
+
+ </script>

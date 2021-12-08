@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>async/await</title>
+</head>
+<body>
+
+	<!-- 
+
+	- link: https://codelearn.io/sharing/asyncawait-trong-javascript
+
+	- axios là 1 thư viện tương tự như fetch, ajax
+	
+	- async:
+		- async được đặt trước 1 hàm làm cho hàm trả về promise.
+	
+	- await:
+		- await được đặt trước 1 hàm làm cho hàm chờ một promise.
+		-  chỉ có thể được sử dụng bên trong một hàm không đồng bộ.
+		- async/await thực hiện tuần tự 
+		- khi promise bị reject và exception xảy ra sử dụng try, catch
+
+	 -->
+
+	<script type="text/javascript">
+		
+		async function myFunction() {
+			return "Hello";
+		}
+		myFunction().then(
+				function(value) { /* code if successful */ },
+				function(error) { /* code if some error */ }
+			)
+		// console.log(myFunction())
+
+
+		async function myFunction1() {	
+			return Promise.resolve("Hello");
+		}
+		myFunction1().then(
+				function(value) { /* code if successful */ },
+				function(error) { /* code if some error */ }
+			)
+		// console.log(myFunction1())
+
+
+	</script>
+
+	<h1 id="demo"></h1>
+
+	<script type="text/javascript">
+			
+		async function display() {
+			let myPromise= new Promise(function (resolve, reject) {
+				resolve('resolve')
+			})
+			document.querySelector('#demo').innerHTML = await myPromise
+		}
+		display();
+
+	</script>
+
+	<script type="text/javascript">
+		// - async/await thực hiện tuần tự 
+		async function sequence() {
+		  await promise1(50); // Wait 50ms…
+		  await promise2(50); // …then wait another 50ms.
+		  return "done!";
+		}
+
+		// -use promise.all
+		async function sequence() {
+		    await Promise.all([promise1(), promise2()]);  
+		    return "done!";
+		}
+
+
+		// - khi promise bị reject và exception xảy ra sử dụng try, catch
+		async function f() {
+			try {
+				let response = await fetch('http://no-such-url');
+			} catch(err) {
+				// alert(err);
+				console.log(err);
+			}
+		}
+		// f();
+
+		
+
+
+
+	</script>
+
+
+	<script type="text/javascript">
+ 		// use get json
+ 		var url = 'https://jsonplaceholder.typicode.com/posts';
+
+ 		// 1
+ 		function getPost(url) {
+ 			return fetch(url)
+				.then(function(response) {
+					console.log(response)
+					return response.json();
+				})
+ 		}
+ 		
+ 		getPost(url)
+ 			.then(function(response) {
+ 				console.log(response)
+ 			})
+
+		// 2 			
+ 		async function getPost1(url) {
+ 			let response = await fetch(url)
+ 			return response.json()
+ 		}
+ 		// console.log(getPost1(url));
+ 		getPost1(url)
+ 			.then(function(response) {
+ 				console.log(response)
+ 			})
+ 		
+
+ 	</script>
+
+
+
+
+
+
+
+</body>
+</html>

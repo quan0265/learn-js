@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>dom get element method</title>
+</head>
+<body>
+
+	<div id="header">
+		<p class='content' >1</p>
+		<p class='content' >2</p>
+	</div>
+
+	<script type="text/javascript">
+
+		console.log(document.querySelector('#header'))
+		console.log(document.querySelectorAll('.content'))
+		console.log(document.getElementById('header'));
+		console.log(document.getElementsByTagName('div'));
+		console.log(document.getElementsByClassName('content'));
+		
+		var headerNode= document.querySelector('#header');
+
+		// show all method of element
+		console.log({
+			element: headerNode
+		})
+
+		console.log(headerNode.querySelectorAll('p'))
+
+		// let div = document.createElement("div");
+		// let p = document.createElement("p");
+		// let span = document.createElement("span");
+		// div.append(p);
+		// headerNode.prepend(span);
+		// console.log(div.childNodes); // NodeList [ <span>, <p> ]
+
+
+	</script>
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,13 @@
+<img id="blah" alt="your image" width="100" height="100" />
+
+<input type="file">
+
+<script type="text/javascript">
+	
+	document.querySelector('input[type=file]').onchange = function() {
+		document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])
+	}
+
+
+
+</script>

@@ -1,0 +1,89 @@
+<!-- 
+
+
+
+ -->
+
+
+<script type="text/javascript">
+	
+	// IIFE
+
+	// - Tạo ra function và gọi ngay lập tức
+	// - Dùng dấu ; trước IIFE
+	let fullName= 'name a'
+
+	;(function(name) {
+		console.log('hello', name)
+	})('php')
+
+	// - IIFE là hàm "private": không thể truy cập from bên ngoài, có truy cập bên trong dùng đe quy
+	let i= 0
+	;(function myFunc() {
+		i++
+		console.log(i)
+
+		if(i < 5)
+			myFunc()
+	})()
+
+</script>
+
+
+<script type="text/javascript">
+	
+// - Ví dụ sử dụng IIFE
+// 	- Tạo 1 object, có thuộc tính không muốn truy cập from bên ngoài
+	
+	const app1= {
+		cars: [],
+		add(car) {
+			this.cars.push(car)
+		},
+		edit(index, car) {
+			this.cars[index]= car
+		},
+		delete(index) {
+			this.cars.splice(index, 1)
+		}
+	}
+	// có thể truy cập, thay đổi from bên ngoài. Sau đó gọi method add bị error
+	// app1.cars= null
+	// app1.add('car1')
+
+
+	// Use IIFE:
+	const app= (function() {
+		// Private
+		const cars= []
+
+		return {
+			get(index) {
+				return cars[index]
+			},
+			add(car) {
+				cars.push(car)
+			},
+			edit(index, car) {
+				cars[index]= car
+			},
+			delete(index) {
+				cars.splice(index, 1)
+			}
+		}
+
+	})()
+
+	// Không hiển thị var cars
+	console.log(app)
+
+	//
+	app.add('name1')
+	console.log(app.get(0))
+
+
+
+
+
+
+</script>

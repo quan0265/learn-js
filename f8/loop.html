@@ -1,0 +1,90 @@
+<!-- 
+- Loop:
+	- for: lặp với điều kiện đúng
+	- for/in: lặp qua key của đối tượng
+	- for of: lặp qua value của đối tượng
+	- while: lặp khi điều kiện đúng
+	- do/while: lặp ít nhất 1 lần, sau đó lặp khi điều kiện đúng
+
+
+
+
+ -->
+
+ <script type="text/javascript">
+ 	
+	//- for: lặp với điều kiện đúng
+	for ( let i= 1; i<= 100; i++) {
+		// console.log(i);
+	}
+
+	// - for in: lặp qua key của object | array | string
+
+	var string = 'javascript';
+
+	var obj= {
+		name: 'name',
+		age: 18
+	}
+
+	var array= ['a', 'b', 'c']
+
+	for (var key in obj) {
+		// console.log(typeof key);
+		// console.log(key);
+		// console.log(obj[key]);
+	}
+
+	for (var key in array) {
+		// console.log(key)
+	}
+
+	for (var key in string) {
+		// console.log(key)
+	}
+
+	for (var key of Object.keys(obj)) {
+		// console.log(key)
+	}
+
+
+	// - for of: lặp qua value của  array | string
+	for (var value of array) {
+		// console.log(value)
+	}
+
+	for (var value of string) {
+		// console.log(value)
+	}
+
+	for (var value of Object.values(obj)) {
+		console.log(value)
+	}
+
+
+
+	// - while: lặp khi điều kiện đúng
+	var i= 0;
+	while (i< array.length) {
+		// console.log(array[i]);
+		i++
+	}
+
+
+	// - do/while: lặp ít nhất 1 lần, sau đó lặp khi điều kiện đúng
+	var i= 0;
+	do {
+		i++;
+		// console.log(i);
+	} while (i< 10)
+
+
+
+
+
+
+
+
+
+
+ </script>

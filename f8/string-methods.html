@@ -1,0 +1,70 @@
+<!-- 
+
+- String:
+	1. Length
+	2. Find index
+	3. Cut string
+	4. Replace
+	5. Convert to upper case
+	6. Convert to lower case
+	7. Trim
+	8. Split
+	9. Get a charater by index
+
+
+
+
+ -->
+
+<script type="text/javascript">
+
+	var myString= 'Learn JS in JS JS F8!'
+
+	// 1. Length
+	console.log(myString.length)
+
+	// 2. Find index
+	console.log(myString.indexOf('JS'))
+	// start index 6
+	console.log(myString.indexOf('JS', 6))
+	console.log(myString.lastIndexOf('JS'))
+	// hỗ trợ biểu thức chính quy
+	console.log(myString.search('JS'))
+
+	// 3. Cut string
+	// cắt trái sang phải, phải sang trái
+	console.log(myString.slice(-3, -1))
+
+	// 4. Replace
+	// thay 1 ki tu first
+	console.log(myString.replace('JS', 'Javascript'))
+
+	// use biểu thức chính quy all
+	console.log(myString.replace(/JS/g, 'Javascript'))
+
+
+
+	// 5. Convert to upper case
+	// console.log(myString.toUpperCase())
+
+	// 6. Convert to lower case
+	// console.log(myString.toLowerCase())
+
+	// 7. Trim
+	// console.log(myString.trim())
+
+	// 8. Split(string to array)
+	var array= 'js, php, ruby';
+	console.log(array.split(', '))
+
+
+	// 9. Get a charater by index
+	console.log(myString[0])
+
+
+
+
+
+
+
+</script>

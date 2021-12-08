@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var myArray = { id1: 100, id2: 200, "tag with spaces": 300 };
+    myArray.id3 = 400;
+    myArray["id4"] = 500;
+
+    for (var key in myArray) {
+        console.log("key " + key + " has value " + myArray[key]);
+    }
+
+
+    var element = {id: 22, quantity: 'skfsdk'},
+        cart = [];
+    element.id = 123;
+    element.quantity = 'quantity';
+    cart.push({ element: element });
+    console.log(cart);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!-- 
+
+- Spread
+	- Sử dụng trong nối mảng
+	- Sử dụng hợp nhất 2 object
+
+ -->
+
+
+<script type="text/javascript">
+	
+	// sử dung estructuring và rest tương tự với mảng 
+	function logger({name, price, ...rest}) {
+		console.log(name);
+		console.log(rest); // {description: 'descriotion'}
+	}
+	logger({
+		name: 'php',
+		price: 1000,
+		description: 'description'
+	})
+
+
+	// Spread(thường gọi là toán tử dải)
+	// - Sử dụng trong nối mảng
+	var array1= ['php', 'html', 'css']
+	var array2= ['java', 'c']
+
+	var array3= [...array1, ...array2];
+	console.log(array3);
+
+	// - Sử dụng hợp nhất 2 object
+	var object1= {
+		name: 'php'
+	}
+	var object2= {
+		price: 1000
+	}
+
+	var object3= {
+		...object1,
+		...object2
+	}
+	console.log(object3);
+
+
+	// Nếu 2 key của 1 object trùng nhau thì lấy key sau
+	var obj1= {
+		api: 'a.com',
+		apiVersion: 'v1',
+	}
+	var obj2= {
+		...obj1,
+		api: 'b.com'
+	}
+	console.log(obj2);
+
+
+	//- Khi gọi đến hàm truyền đối số không gọi là rest, gọi là spread: nameFunction(...array)
+	var arr1= ['php', 'html', 'css'];
+	// ...rest gọi là rest
+	function login(...rest) {
+		for(var i=0; i< rest.length; i++) {
+			console.log(rest[i]);
+		}
+	}
+	// ...arr1 gọi là spread
+	logger(...arr1);
+
+
+
+
+
+
+
+</script>

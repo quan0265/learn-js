@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>dom attribute</title>
+</head>
+<body>
+
+	<div id="root">
+		
+	</div>
+
+<!-- 
+
+- Dom attribute
+	- Set attribute (2 cách):
+			- Seter: el.nameAttribute= 'string'
+			- method: el.setAttribute('nameAttribute', 'string')
+	- Get attribute (2 cách): 
+		- el.nameAttribute
+		- el.getAttribute('nameAttribute', 'string')
+	- Chú ý dùng seter: có tên attribute trùng với tên thuộc tính có sãn của element thì không get và set được. Dùng method thì không ảnh hưởng
+
+ -->
+
+	<script type="text/javascript">
+		
+		var root= document.querySelector('#root');
+		var box= document.createElement('div');
+		// console.log({box});
+		box.className= 'box';
+		box.innerText= 'Hello';
+
+		root.append(box);
+
+		//set attr:
+		root.id= '1';
+		root.setAttribute('name', 'name');
+
+		//get attr:
+		console.log(root.id);
+		console.log(root.getAttribute('name'));
+
+		// - Chú ý dùng seter: có tên attribute trùng với tên thuộc tính có sãn của element thì không get và set được. Dùng method thì không ảnh hưởng
+		console.log(root.name) //undefined
+
+
+
+
+	</script>
+
+</body>
+</html>

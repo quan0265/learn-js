@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>dom event</title>
+</head>
+<body>
+
+<!-- 
+
+- DOM events:
+	1. Attribute events
+	2. Assign event using the element node
+
+ -->
+
+<h1>
+	<!-- Attribute events -->
+	<!-- <span onclick="console.log(this)">DOM events</span> -->
+
+	<span>DOM events</span>
+</h1>
+
+<h2>
+	<span>DOM events1</span>
+</h2>
+
+<h2>
+	<span>DOM events2</span>
+</h2>
+
+<h2>
+	<span>DOM events3</span>
+</h2>
+
+
+<script type="text/javascript">
+	
+	// Assign event using the element node
+
+	var h1= document.querySelector('h1');
+	h1.onclick= function(e) {
+		console.log(this)
+		console.log(e)
+	}
+
+
+	// mỗi lần click el h2 html bên trong thẻ đó
+	var h2= document.querySelectorAll('h2');
+	
+	h2.forEach((item, index) => {
+		item.onclick= function(e) {
+			// Show all PointerEvent when event is active
+			// console.log(e);
+
+			console.log(e.target)
+		}
+	})
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>code jquery</title>
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css"> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+</head>
+<body>
+	
+</body>
+</html>
+<script type="text/javascript">
+
+// chạy ngược lên phía trên cây DOM để tìm những phần tử phù hợp với tham số truyền, lấy tất cả tham số phù hợp
+$(e).closest('ul');
+
+// lấy tất cả thẻ bao ngoài của mỗi element nếu the bao ngoài ấy là tag ul
+$(e).parents('ul');
+
+// lấy 1 thẻ bao ngoài gần nhất của mỗi element nếu thể bao ngoài gần nhất ấy có class main
+$(e).parent('.main');
+
+// lấy 1 thẻ bao ngoài gần nhất của mỗi element
+$(e).parent();
+
+// chạy ngược xuôns phía dưới cây DOM để tìm những phần tử phù hợp với tham số truyền, lấy tất cả tham số phù hợp
+$(e).find('.class');
+
+
+
+// - event:
+
+// luôn theo dõi, phát hiện sự thay dổi của 1 element:
+$('body').on('DOMSubtreeModified', 'div', function() {
+	//
+}) 
+
+
+
+</script>

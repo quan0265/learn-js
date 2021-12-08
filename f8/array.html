@@ -1,0 +1,54 @@
+<!-- 
+- Array:
+	- Create
+	- Accessing, change an array element
+	- Array element can be object
+	- Adding array element: array.push
+	- JavaScript does not support arrays with named indexes
+	- The Difference Between Arrays and Objects: 
+		- In JavaScript, arrays use numbered indexes.  
+		- In JavaScript, objects use named indexes.
+
+
+
+ -->
+
+
+<script type="text/javascript">
+	// - Create
+	const array= ['php', 'js', 'html'];
+	
+	// - Accessing, change an array element
+	array[3]= 'css';
+	console.log(array[0]);
+
+	// - Array element can be object
+	user= {
+		name: 'name',
+		age: 18
+	}
+	array[4]= user;
+	console.log(array)
+
+	// - Adding array element: array.push
+	array.push('java');
+	console.log(array)
+
+	// - Length property 
+	console.log(array.length)
+
+	// - Loop array
+	for (key in array){
+		// console.log(key)
+	}
+	for (value of array){
+		// console.log(value)
+	}
+
+	for (let i= 0; i< array.length; i++){
+		// console.log(array[i])
+	}
+
+
+
+</script>

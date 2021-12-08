@@ -1,0 +1,92 @@
+
+<!-- 
+
+	- Kiểu dữ liệu(data type):
+		1. Dữ liệu nguyên thủy -Primitive Data
+			- Number
+			- String
+			- Boolean
+			- Null
+			- Symboy
+		2. Dữ liệu phức tạp - Complex Data
+			- Function
+			- Object
+
+
+ -->
+<script type="text/javascript">
+	
+	// Number type
+	var a= 1;
+	var b= 1.5;
+
+	// String type
+	var fulName= 'Hello \' '
+
+	// Boolean type
+	var isSuccess= true
+
+	// Undefined type
+	var age;
+	console.log(age)
+
+	// Null
+	var isNull= null; //nothing
+
+	//Symbol(ES6)
+	var id= Symbol('id'); //unique
+	var id2= Symbol('id'); //unique
+
+	console.log( id===id2);
+	//false
+
+
+	// Function 
+
+	var myFunction = function() {
+		alert('hello');
+	}
+	// myFunction()
+
+	var myObject= {
+		name: 'name',
+		age: '18',
+		myFunction: function() {
+			console.log('function in 1 object')
+		}
+	}
+	// console.log(myObject)
+	// console.log(myObject.myFunction)
+	// myObject.myFunction()
+
+	var myArray= ['js', 'php', 'ruby'];
+	// console.log(myArray)
+
+
+	// typeof
+	// number
+	// undefined
+	// function
+	console.log(typeof myFunction)
+	// object: null, array, object
+	console.log(typeof myArray)
+	console.log(typeof myObject)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>typof 1</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="abc"></div>
+
+<script type="text/javascript">
+
+if(typeof abc=='undefined'){
+	console.log('abc is undefined');
+}
+//abc is undefined
+
+// if(!abc){
+// 	console.log(222);
+// }
+//Uncaught ReferenceError: abc is not defined
+	
+
+//show error and continue run	
+try {
+	// statements
+	console.log(document.querySelector('fdsafdsad').getAttribute('abcd'));
+
+} catch(e) {
+	// statements
+	console.log(e);
+}
+
+
+if($('.abdcc')){
+	 console.log(333)
+}
+else{
+	console.log(222);
+}
+//333
+
+if($('.abdcc').attr('data-id')){
+	 console.log(333)
+}
+else{
+	console.log(222);
+}
+//222
+
+console.log($('.abc').attr('data-id'));
+//type: undefined
+console.log($('.abccss').attr('data-id'));
+//type: undefined
+
+console.log(document.querySelector('.abcsss'));
+//type: null
+
+console.log(document.querySelector('.abc').getAttribute('data-id'));
+//type: undefined
+console.log(document.querySelector('.abcsss').getAttribute('data-id'));
+//Uncaught TypeError: Cannot read property 'getAttribute' of null
+
+
+// ac neu xen dieu kien Countries.abc truoc roi Countries thi error
+if(typeof Countries != 'undefined' && typeof Countries.abc != 'undefined'){
+		alert(22);
+	}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

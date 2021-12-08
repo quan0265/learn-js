@@ -1,0 +1,48 @@
+<!-- 
+
+- optional chaining:
+	- obj.val?.prop
+	- obj.val?.[expr]
+	- obj.arr?.[index]
+	- obj.func?.(args)
+
+
+ -->
+
+<script type="text/javascript">
+	
+
+	const obj= {
+		name: 'Alice',
+		cat: {
+			name: 'name',
+			cat2: {
+				name: 'name2',
+				cat3: {
+					name: 'name3'
+				}
+			}
+		}
+	}
+
+	// check cat, cat2, cat3, is exits 
+	if(obj.cat && obj.cat.cat2 && obj.cat.cat2.cat3) {
+		console.log(obj.cat.cat2.cat3.name);
+	}
+
+	// Use optional chaining
+	if(obj?.cat?.cat2?.cat3) {
+		console.log(obj.cat.cat2.cat3.name);
+	}
+
+
+	// check method of object
+	const obj1= {
+		getName(value) {
+			console.log(value);
+		}
+	}
+	obj1.getName?.(123);
+
+
+</script>

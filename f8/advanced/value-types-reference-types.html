@@ -1,0 +1,217 @@
+
+<!-- 
+
+- Value types (tham trị) & Reference type (tham chiếu):
+	1. Value types (Primitivie (nguyên thủy) data types):
+		- String
+		- Number
+		- Boolean
+		- BigInt
+		- Symbol
+		- undefined
+		- null
+		- Value types trả về giá trị
+	2. Reference types (Non-primitivie (không nguyên thủy) data types):
+		- Object
+		- Array
+		- Function
+		- Reference types trả về địa chỉ vùng nhớ
+	- Data types with functions:
+		- Value types
+		- Reference types
+
+ -->
+
+
+<script type="text/javascript">
+
+let a= 1
+let b= a
+
+a= 2
+
+console.log(b) // 1
+// Với let a= 1 tạo ra biến a, cấp 1 ô nhớ, lưu 1 vào ô nhớ
+// Với let b= a tạo ra biến b, cấp 1 ô nhớ khác, sao chép giá trị của a (là 1) vào ô nhớ của b
+// Với a= 2 sửa lại giá trị trong ô nhớ của a thành 2
+
+
+</script>
+
+
+
+
+<script type="text/javascript">
+
+// Reference values (giá trị tham chiếu)
+	
+let a1= {
+	name: 'Mercedes'
+}
+let b1= a1
+
+a1.name= 'BMW'
+
+console.log(b1) // d.name = 'BMW'
+
+// Là kiểu tham chiếu 
+// với let a= {name: 'Mercedes'}: tạo biến a cấp một ô nhớ lưu: {name: 'Mercedes'} vào ô nhớ, trả về địa chỉ đã lưu và gán cho biến a, biến a lưu địa chị ô nhớ chứ không phải giá trị
+// với b = a: tạo biến b, trỏ biến b tới cùng địa chỉ ô nhớ biến a
+// với a.name= 'BMW': sửa giá trị của key name trong ô nhớ thành 'BMW'
+// Kết quả cuối cùng console.log(b.name) là 'BMW'. Vì b và a được trỏ cùng tới ô nhớ nên việc sửa đổi giá trị của object thông qua biến a và b là như nhau
+
+
+</script>
+
+<script type="text/javascript">
+	
+	let a2= {
+		name: 'Mercedes'
+	}
+	a2= {
+		name: 'BMW',
+		model: 'i8'
+	}
+
+	// let a= { name: 'Mercedes' } 1 object được tạo ra và lưu vào 1 ô nhớ
+	// a= { name: 'BMW', model: 'i8' } 1 object mới được tạo ra và lưu vào ô nhớ khác, biến a lưu bộ nhớ mới này
+	// object, array, function  cứ khi được gán = 1 object, array, function là lưu vào một ô nhớ mới
+	// a.name= 'i6': vào địa chị ô nhớ biến a đã lưu và sửa giá trị lại
+
+</script>
+
+<script type="text/javascript">
+	const a3= {
+		name: 'Mercedes'
+	}
+	const b3= a3
+	const c3= b3
+	const d3= c3
+
+	b3.name= 'BMW'
+	console.log(a3.name) // Output: 'BMW'
+
+	c3.name= 'php'
+	console.log(a3.name) // Output: 'php'
+
+	d3.name= 'css'
+	console.log(a3.name) // Output: 'css'
+
+	// biến a, b, c, d đều có 1 địa chỉ và trỏ về 1 vùng nhớ
+	// c3.name= 'php' tìm đến ô nhớ đấy và lưu giá trị
+
+</script>
+
+
+<script type="text/javascript">
+	// Trường hợp 1 object chứa 1 object
+
+	const student= {
+		name: 'Oanh Ha',
+		profile: {
+			firstName: 'Oanh',
+			lastName: 'Ha',
+			introduction: 'Girl'
+		}
+	}
+
+	// - Tạo ra ô nhớ của object bên trong trước, tạo ra ô nhớ của object bên ngoài sau
+	// - Có 2 object nên tạo 2 địa chỉ ô nhớ
+	// - key profile đang lưu địa chỉ ô nhớ của object đã gán cho nó
+	// - student đang lwuu địa chỉ ô nhớ của object đã gán cho nó
+
+</script>
+
+
+
+<script type="text/javascript">
+	
+	// - Data types with functions:
+
+	function sum(a, b) {
+		a= 0
+		b= 0
+		console.log(a, b)
+	}
+	const c5= 1
+	const d5= 2
+
+	sum(c5, d5) // 0, 0
+	console.log(c5, d5) // 1, 2
+
+	// Mỗi lần gọi function, trong function sẽ tạo ra 2 biến với 2 ô nhớ gán với giá trị tương ứng
+	// vì là tham trị nên không thay đổi
+	// chạy hêt function được gọi sẽ clear biến, ô nhớ bên trong function
+
+
+
+	function func(obj) {
+		obj.name= 'Mercedes'
+		console.log(obj.name) // 'Mercedes'
+	}
+	const a6= {
+		name: 'BMW'
+	}
+
+	func(a6)
+	console.log(a6.name) // Mercedes
+
+	// Side effect
+
+
+	function createCar(obj) {
+		obj.name= 'Mercedes'
+		return obj
+	}
+
+	const car= {
+		name: 'BMW'
+	}
+
+	const newCar= createCar(car)
+	console.log(car)
+	console.log(newCar)
+	// - function createCar trả về đúng địa chỉ ô nhớ mà function nhận vào
+	// - tạo biến newCar gán bằng function createCar sẽ lưu cùng 1 địa chỉ ô nhớ của đối tượng được truyền vào function là biến car 
+
+
+	// Cách xử lý dùng JSON.parse(JSON.stringify(obj)) sẽ tạo 1 object mới lưu vào địa chỉ ô nhớ mới
+	function createCar1(obj) {
+		obj= JSON.parse(JSON.stringify(obj))
+		obj.name= 'Mercedes'
+		// return địa chỉ ô nhớ mới
+		return obj
+	}
+
+	const car1= {
+		name: 'BMW'
+	}
+	const newCar1= createCar1(car)
+
+	console.log(car1.name) // BMW
+	console.log(newCar1.name) // Mercedes
+	// BIến car1, newCar1 đang lưu địa chỉ của 2 ô nhớ khác nhau
+
+</script>
+
+<script type="text/javascript">
+	// - Reference types trả về địa chỉ vùng nhớ
+
+	const a9= {
+		name: 'BMW'
+	}
+	const b9= {
+		name: 'BMW'
+	}
+
+	console.log(a9 === b9) // false
+	// giả dụ biến a trả về địa chỉ vùng nhớ #001, biến b trả về địa chỉ vùng nhớ #002 nên khác nhau
+
+
+
+	// const không thể gán lại giá trị
+	// không error do đang truy cập vào địa chỉ ô nhớ và sửa lại thuộc tính chứ không phỉa gán lại
+	a9.name= 'php' 
+
+
+</script>

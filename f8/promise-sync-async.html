@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>promise sync async</title>
+</head>
+<body>
+
+<!-- 
+
+- sync, async:
+	- sync: đồng bộ, code chạy tuần tự theo trình tự viết code from trên xuống
+	- async: bất đồng bộ, các đoạn code phía dưới có thể chạy dù code bên trên chưa thực thi và trả về kết quả
+		- setTimeout, setInterval, fetch
+		- XMLHtpRequest, file reading
+		- request animation frame
+		- sử dung callback
+
+
+
+ -->
+
+
+<script type="text/javascript">
+	
+	// callback đê thao tác bất đồng bộ
+	setTimeout(function() {
+		console.log(1);
+	}, 1000)
+
+	console.log(2);
+
+
+</script>
+
+</body>
+</html>

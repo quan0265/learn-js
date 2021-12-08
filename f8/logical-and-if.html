@@ -1,0 +1,30 @@
+
+<!-- 
+	0
+	''
+	null
+	undefined
+	NaN
+	false
+
+ -->
+
+<script type="text/javascript">
+
+	// Biến result chạy trái sang phải nếu giá trị đầu tiên bằng 6 giá trị trên thì trả về kết quả còn không thì lấy kết quả cuối cung
+	var result= 'A' && 'B' && 'C';
+	console.log(result)
+	//B
+	var result1= 'A' && null && 'C';
+	console.log(result1)
+	//null
+
+	var a= 'abc';
+	if(result){
+		console.log('yes')
+	}
+	else{
+		console.log('no')
+	}
+
+</script>

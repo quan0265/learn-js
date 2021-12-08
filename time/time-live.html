@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+<!-- https://www.plus2net.com/javascript_tutorial/clock.php -->
+
+<h2 id="ct"></h2>
+
+<h3 id="a"></h3>
+
+<script type="text/javascript">
+
+// const d = new Date();
+
+// d.getMonth() + 1;	// Month	[mm]	(1 - 12)
+// d.getDate();		// Day		[dd]	(1 - 31)
+// d.getFullYear();	// Year		[yyyy]
+var d1 = new Date(); //"now"
+var d2 = new Date("2022/06/01 00:00:00");  // some date
+var diff = Math.abs(d2-d1);  // difference in milliseconds
+// diff= new Date(diff);
+// diff= moment(diff).format('y-m-d H:i:s');
+
+// document.querySelector('#a').innerHTML= diff;
+
+// document.querySelector('#a').innerHTML= diff.getHours();
+// document.querySelector('#a').innerHTML= diff.getMinutes();
+// document.querySelector('#a').innerHTML= diff.getSeconds();
+// document.querySelector('#a').innerHTML= diff.getDate();
+// document.querySelector('#a').innerHTML= diff.getMonth();
+// document.querySelector('#a').innerHTML= diff.getFullYear()-1970;
+
+
+
+// var rest= (23-d1.getHours()) + ':' + (59-d1.getMinutes()) + ':' + (59-d1.getSeconds());
+// document.querySelector('#a').innerHTML= 23-d1.getHours() + ':' + (59-d1.getMinutes()) + ':' + (60-d1.getSeconds());
+// console.log(d1.getSeconds());
+
+	// function show_time_rest_for(){
+	// 	// var refesh= 1000; //1000 ms
+	// 	setTimeout(show_time_rest, 1000);
+	// }
+	
+	function show_time_rest(){
+		var now= new Date();
+		var rest= 23-now.getHours() + ':' + (59-now.getMinutes()) + ':' + (60-now.getSeconds());
+		document.querySelector('#a').innerHTML= rest;
+		// show_time_rest_for();
+	}
+
+	// show_time_rest();
+	// show_time_rest_for();
+	setInterval(show_time_rest, 1000);
+
+
+
+//de quy lap function bang viec goi trong 1 function khac
+	function display_c(){
+		var refesh= 1000; //1000 ms
+		mytime= setTimeout(display_ct, refesh);
+	}
+
+	 function display_ct(){
+	 	var x=  new Date();
+	 	document.getElementById('ct').innerHTML= x;
+	 	display_c();
+	 }
+
+	 display_c();
+
+</script>
+</body>
+</html>

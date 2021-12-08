@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>dom preventDefault stopPropagation</title>
+</head>
+<body>
+
+	<a name='a' href="https://fullstack.edu.vn/">f8.com</a>
+	<br>
+	<a href="https://www.google.com/">google.com</a>
+
+	<script type="text/javascript">
+		
+		// console.log(document.anchors);
+		// console.log(document.links);
+		var aElement= document.links
+
+		for (let i= 0; i< aElement.length; i++) {
+			aElement[i].onclick= function(e) {
+				// e.preventDefault
+				// console.log(e.target.href)
+
+				//nếu ! bắt đầu bằng 'f8.com'
+				if(!e.target.href.startsWith('https://fullstack.edu.vn/')) {
+					e.preventDefault();
+				}
+			}
+		}
+
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+	<hr>
+	<br>
+
+	<style>
+		ul{
+			display: none;
+		}
+
+		input:focus ~ ul{
+			display: block;
+		}
+
+	</style>
+
+	<input type="text" placeholder="Tìm kiếm">
+
+	<ul>
+		<li>php</li>
+		<li>html</li>
+		<li>css</li>
+	</ul>
+
+	<!-- 
+	
+	- Khi chuôt focus ở ô input thì hiện tag ul, nhưng khi click vào li trong ul thì ul đã ẩn rồi.
+	- Khi focus vào input text thì hiển block ul, click vào ul, li thì ul vẫn hiện: dùng eprentDefault 
+
+	 -->
+
+	<script type="text/javascript">
+		var ulElement= document.querySelector('ul');
+
+		ulElement.onmousedown= function(e) {
+			e.preventDefault();
+		}
+
+
+
+	</script>
+
+
+
+
+
+
+
+	<hr><br>
+	<!-- 
+	- stopPropagation: sự kiện nổi bọt
+		- ví dụ: div>button, tag button nằm trong div, gán event khi click div thì console 'div', khi click button thì console 'button', nhưng khi click button thì div cũng được click luôn đây là sự kiện nổi bọt
+
+
+	 -->
+
+	<div onclick="console.log('DIV')" >
+		DIV
+		<button onclick="console.log('Click')" >Click</button>
+	</div>
+
+	<script type="text/javascript">
+		
+		document.querySelector('div').onclick= function(e) {
+			console.log('DIV');
+		} 
+
+		document.querySelector('button').onclick= function(e) {
+			e.stopPropagation();
+			console.log('CLick');
+		} 
+
+
+	</script>
+
+
+
+
+
+</body>
+</html>

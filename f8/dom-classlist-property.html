@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>dom classlist property</title>
+	<style type="text/css">
+		.green{
+			color: green;
+		}
+
+		.font-italic{
+			font-style: italic;
+		}
+
+		div{
+			font-size: 30px;
+		}
+
+	</style>
+</head>
+<body>
+
+<!-- 
+
+- DOM classList property
+
+ -->
+
+<div class="box box-2">Hello</div>
+
+<script type="text/javascript">
+	
+	var boxElement= document.querySelector('.box');
+
+	// Show prototype:
+	console.log(boxElement.classList);
+
+	// console.log(boxElement.classList[0]);
+	// console.log(boxElement.classList.value);
+
+	boxElement.classList.add('green', 'green1');
+
+	setTimeout(() => {
+		boxElement.classList.remove('green');
+	}, 2000)
+
+	setInterval(() => {
+		boxElement.classList.toggle('font-italic');
+	}, 1000)
+
+
+
+
+</script>
+
+</body>
+</html>

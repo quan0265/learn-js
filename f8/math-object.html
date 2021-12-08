@@ -1,0 +1,59 @@
+<!-- 
+
+- Math object:
+	- Math.PI 
+	- Math.round()
+	- Math.abs()
+	- Math.ceil()
+	- Math.floor()
+	- Math.random()
+	- Math.min()
+	- Math.max()
+
+
+ -->
+
+ <script type="text/javascript">
+
+// - Math.PI 
+	console.log(Math.PI)
+
+// - Math.round() : làm tròn >=.5 thì lên trên, <.5 thì xuống
+ 	console.log(Math.round(1.5))
+
+// - Math.abs(): 
+	console.log(Math.abs(-2))	
+
+// - Math.ceil(): >.0 làm tròn lên
+	console.log(Math.ceil(1.2))
+
+// - Math.floor(): <.0 làm tròn xuống
+	console.log(Math.floor(1.99))
+
+// - Math.random()
+	// console.log(Math.random())
+
+	// random 0 - 4
+	console.log(Math.floor(Math.random() * 5));
+
+// - Math.min()
+	console.log(Math.min(-100, 1, 9))
+
+// - Math.max()
+	console.log(Math.max(-100, 1, 9))
+
+
+	// Ex1 find max of array 
+	var arr= [1, 2, 3];
+
+	var max= arr.reduce(function(a, b){
+		return Math.max(a, b)
+	})
+	console.log(max)
+
+
+
+
+
+
+ </script>

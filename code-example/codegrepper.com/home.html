@@ -1,0 +1,750 @@
+
+<!doctype html>
+<html>
+<head>
+<link rel="icon" href="https://d2441bdvuxbh7t.cloudfront.net/web/images/favicon.ico">
+<!--
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1381509,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+-->
+
+<!-- Global site tag (gtag.js) - Google Ads: 1030955762 -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1030955762"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-1030955762');
+</script>
+-->
+
+<title>Grepper | The Query & Answer System for the Coder Community</title>
+<meta name="og:title" property="og:title" content='Grepper | The Query & Answer System for the Coder Community'>
+<meta property="og:image" content="https://www.codegrepper.com/images/logo_colors_small.png"/>
+<meta name="description" content='Get code examples instantly right from your google search results with the Grepper Chrome Extension.'>
+
+
+
+
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="/codemirror/theme/prism-okaidia.css">
+<link rel="stylesheet" href="/css/main.css">
+<script data-ad-client="ca-pub-4352740086546929" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142853949-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-142853949-1');
+</script>
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--<link href="https://fonts.googleapis.com/css?family=Poppins:100,300,400|Raleway:400,700|Questrial&display=swap" rel="stylesheet">-->
+<header> 
+<div id="logo_holder_outer">
+    <div id="logo_holder">
+
+        <!--<img src="https://d2441bdvuxbh7t.cloudfront.net/web/images/logo_colors_small.png">-->
+        <!--<div id="grepper_logo">Grepper</div>-->
+
+        <img src="https://d2441bdvuxbh7t.cloudfront.net/web/images/grepper_and_logo.jpeg" style="margin-top:5px;">
+    </div>
+</div>
+
+
+    <nav id="nav">
+    <div id="twitter_follow_button_holder">
+        <a id="follow-button"  target="_blank" class="tays_twitter_btn" title="Follow @codegrepper on Twitter" href="https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fwww.codegrepper.com%2F&amp;ref_src=twsrc%5Etfw&amp;region=follow_link&amp;screen_name=codegrepper&amp;tw_p=followbutton"><i></i><span class="label" id="l">Follow</span></a>
+    </div>
+      <ul>
+        <li style="margin-left:150px;"> <a href="/index.php">GREPPER</a> </li>
+        <li> <a href="/search.php">SEARCH <span class="search_snippets_nav">SNIPPETS</a></a> </li>
+        <!--<li> <a href="/earnings.php">EARN</a> </li>-->
+        <!--<li> <a href="/pricing.php">PRICING</a> </li>-->
+        <li> <a href="/faq.php">FAQ</a> </li>
+        <li> <a href="/documentation.php"> USAGE DOCS  </a> </li>
+        <!--<li> <a href="/pricing">PRICING</a> </li>-->
+        <li> <a 
+         class="button1 lead_click chrome_button install_button_nav"
+         href="https://chrome.google.com/webstore/detail/grepper/amaaokahonnfjjemodnpmeenfpnnbkco" 
+         target="_blank"
+        >INSTALL GREPPER</a> </li>
+          <li> <a 
+         class="button1_light"
+         style="cursor:pointer"
+         target="_blank"
+         onclick="loginOrRegister(1)"
+        >Log In</a> </li>
+         <li> <a 
+         style="cursor:pointer"
+         class="button1_light"
+         target="_blank"
+         onclick="loginOrRegister(0)"
+        >Signup</a> </li>
+      </ul>
+    </nav>
+</header>
+    
+<div id="splash">
+<div id="grepper_answer_holder">
+<h1 style="font-size:22px;">“” Code Answer </h1>
+<h2 style="font-size:16px;line-height:26px;" >You may not remember next time either, so install Grepper.</h2>
+    <div id="grepper_answer">
+        <div id="copy_button" class="copy_button">Copy To Clipboard</div>
+    </div>
+</div>
+
+
+<div id="hero1">
+    <!--<h1> Code Answers at Your Finger Tips!</h1>-->
+    <h1> The Query & Answer System for the Ambitious Developer </h1>
+</div>
+<div id="hero2">
+<!--<h2> Search code problems, get your code answers </h2>-->
+<h2>Develop faster, master your code, understand more, grow in your career.</h2>
+</div>
+
+<div id="hero3" style="position:relative;">
+ <a id="lead1_click"
+ class="button1 lead_click"
+ href="https://chrome.google.com/webstore/detail/grepper/amaaokahonnfjjemodnpmeenfpnnbkco" 
+ target="_blank"
+ >INSTALL GREPPER FOR CHROME </a>
+
+<div style="position:relative;top:16px;">
+    <a style="font-weight:normal;" href="browser_support.php">or download for another browser</a>
+</div>
+</div>
+
+
+<iframe  src="https://www.youtube.com/embed/Q63qjIXMqwU" frameborder="0" id="video_background" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!--
+<video id="video_background" preload="auto" autoplay muted loop>
+    <source src="videos/grepper_hero1.mov" type="video/mp4">
+</video>
+-->
+
+</div>
+
+<section id="section1">
+<div class="text-left">
+    <h3 id="features">The ultimate RAM upgrade for your brain, easily snag and access code answers.  </h3> 
+    <p>
+    Accrue code answers to common coding problems, find code answers without thinking - using Greppers “code problem” search engine.
+    </p>
+    <div class="install_button_holder">
+    <a 
+ id="lead2_click"
+ class="button1 lead_click"
+ href="https://chrome.google.com/webstore/detail/grepper/amaaokahonnfjjemodnpmeenfpnnbkco" 
+ target="_blank"
+    >INSTALL GREPPER</a> 
+    </div>
+</div>
+<div class="text-right">
+<img class="hero_image1" src="images/hero_image1.png">
+
+</div>
+<div class="clear"></div>
+</section>
+
+<section id="section2">
+<div class="text-left">
+<img class="hero_image2" src="images/hero_image2.png">
+</div>
+<div class="text-right">
+    <h3>Easily save code answers from around the web.</h3> 
+    <p>
+        After you google search a code problem, you can use grepper’s “easy code snag” to easily save a code answers to Grepper.
+    </p>
+    <div class="install_button_holder">
+    <a 
+ id="lead3_click"
+ class="button1 lead_click"
+ href="https://chrome.google.com/webstore/detail/grepper/amaaokahonnfjjemodnpmeenfpnnbkco" 
+ target="_blank"
+    >INSTALL GREPPER</a> 
+    </div>
+</div>
+
+<div class="clear"></div>
+</section>
+
+<section id="section3" class="">
+<div class="text-left" >
+    <h3>Access your code answers without thinking. </h3> 
+    <p>
+    Next time you search a similar code problem, Greppers “code search engine” will show your answers at the top of your google results.
+    </p>
+    <div class="install_button_holder">
+    <a 
+ id="lead4_click"
+ class="button1 lead_click"
+ href="https://chrome.google.com/webstore/detail/grepper/amaaokahonnfjjemodnpmeenfpnnbkco" 
+ target="_blank"
+    >INSTALL GREPPER</a> 
+    </div>
+</div>
+<div class="text-right">
+<img class="hero_image1" src="images/hero_image3.png">
+
+</div>
+<div class="clear"></div>
+</section>
+
+<section id="section4_1">
+<div class="text-left">
+<img class="hero_image2" src="images/hero_image4.png">
+</div>
+<div class="text-right">
+    <h3>Contribute, Vote & Earn with public Grepper answers</h3> 
+    <p>
+    Our goal is to provide you with the right answer for the specific coding spot you are in, we do this by using coder feedback from other folks who ran into your same coding problem. By contributing answers not only will you help other coders out, you can also earn by receiving donations from other thankful coders.
+    </p>
+    <div class="install_button_holder">
+    <a 
+ id="lead3_click"
+ class="button1 lead_click"
+ href="https://chrome.google.com/webstore/detail/grepper/amaaokahonnfjjemodnpmeenfpnnbkco" 
+ target="_blank"
+    >INSTALL GREPPER</a> 
+    </div>
+</div>
+
+<div class="clear"></div>
+</section>
+
+
+
+
+<section id="section4" class="no_border_bottom">
+
+<h1  style="text-align:center;">Why you should use Grepper </h1>
+
+
+<h3>Develop Faster </h3> 
+<p>
+Having answers at the top of your search results keeps you from having to scour forums for the correct answer, having quick access to the right answer allows you to stay in the "developer zone" (you know that thing where there is no distance from you and the computer).
+</p>
+
+<h3>Learn & constantly improve your coding skills</h3> 
+<p>
+By providing an answer to a code problem your future self will be sure to thank you. First you are very likely to know to solve that problem the next time your come across it, and if you happen to forget, your future self will help remind you with an answer as soon as you google search the problem. By answers code problems you deepen and broaden your coding skills, putting you at the top of the developer community.
+</p>
+
+
+<h3>Grow your Career </h3> 
+<p>
+Being an innovator and at the forefront of technology is one of the keys for developers looking to grow into higher level roles such as CTO or lead & senior developer. Of course, Grepper won’t do everything to get you there, but getting in the habit of using tools that enhance your development flow is a must if you want to lead teams or even companies. We believe that Grepper should be a core part of that suite of developer tools you use.
+</p>
+
+<h3>Innovate, Earn & Lead the way</h3> 
+<p>
+The Grepper community is growing fast, and as the community grows more and more developers will see and use your answers. Every time your answer shows up in a search, another developer will have an opportunity to donate to your paypal account. As the community grows, we will also host virtual code & learn sessions where developers around the world meet virtually and will work on coding projects together. We hope to create long term opportunities and connections for ambitious and skilled developers all around the world.
+</p>
+
+
+
+
+</section>
+
+<section class="reviews_box_hero">
+    <h3 id="reviews" style="text-align:center;"> Other Developers on Grepper </h3>
+    <p class="review_quote">
+    “Heck Yea! Grepper is great, all the correct code answers are just coming up when I google search a problem. I've never seen anything like this, it's super easy to snag a code answers and then it just shows up when I need it.”
+    </p>
+    <div class="review_person">
+    <div class="review_person_image"><img  src="images/luis_s_pic.jpg"> </div>
+    <div class="review_person_name"> - Luis S. | Web Developer</div>
+    <div class="clear"></div>
+</div>
+
+</section>
+
+<section class="no_border_bottom homepage_code_snippets">
+<h1  id="code_snippets" class="a-center">Browse Code Answers </h1> 
+<h2 class="a-center"> Select a Programming Language</h2>
+<ul class="code_language_large">
+    <a href="/code-examples/shell">
+        <li> Shell/Bash <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/csharp">
+        <li> C# <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/cpp">
+        <li> C++ <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/c">
+        <li> C <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/css">
+        <li> CSS <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/html">
+        <li> Html <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/java">
+        <li> Java <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/javascript">
+        <li> Javascript <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/objectivec">
+        <li> Objective-C <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/php">
+        <li> PHP <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/python">
+        <li> Python <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/sql">
+        <li> SQL <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/swift">
+        <li> Swift <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/whatever">
+        <li> Whatever <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/ruby">
+        <li> Ruby <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/typescript">
+        <li> TypeScript <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/go">
+        <li> Go <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/kotlin">
+        <li> Kotlin <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/assembly">
+        <li> Assembly <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/r">
+        <li> R <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/vb">
+        <li> VBA <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/scala">
+        <li> Scala <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/rust">
+        <li> Rust <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/dart">
+        <li> Dart <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/elixir">
+        <li> Elixir <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/clojure">
+        <li> Clojure <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/webassembly">
+        <li> WebAssembly <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/fsharp">
+        <li> F# <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/erlang">
+        <li> Erlang <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/haskell">
+        <li> Haskell <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/matlab">
+        <li> Matlab <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/cobol">
+        <li> Cobol <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/fortran">
+        <li> Fortran <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/scheme">
+        <li> Scheme <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/perl">
+        <li> Perl <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/groovy">
+        <li> Groovy <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/lua">
+        <li> Lua <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/julia">
+        <li> Julia <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/delphi">
+        <li> Delphi <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/abap">
+        <li> Abap <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/lisp">
+        <li> Lisp <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/prolog">
+        <li> Prolog <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/pascal">
+        <li> Pascal <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/postscript">
+        <li> PostScript <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/smalltalk">
+        <li> Smalltalk <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/actionscript">
+        <li> ActionScript <i class="icon angle right"></i></li>
+    </a>
+    <a href="/code-examples/basic">
+        <li> BASIC <i class="icon angle right"></i></li>
+    </a>
+   
+</ul>
+<!--<h3 id="code_snippets"> Popular Code Q&A (Query & Answer)  </h3> -->
+<div class="clear"></div>
+
+</section>
+<section id="footer" class="long_grey">
+<div id="footer_nav_holder_outside">
+<div class="footer_nav_holder">
+    <h4> Grepper </h4>
+    <a href="/index.php#features">Features</a>
+    <a href="/index.php#reviews">Reviews</a>
+    <a href="/code-examples/"> Code Answers</a>
+    <a href="/search.php">Search Code Snippets</a>
+    <!--<a href="/earnings.php">Earn</a>-->
+    <a href="/pricing.php"> Pricing</a>
+    <a href="/faq.php"> FAQ</a>
+    <a href="/welcome.php"> Welcome</a>
+    <a href="/browser_support.php">Browsers Supported</a>
+    <a href="/teams.php">Grepper Teams</a>
+    <!--<a href="/grepper-gold.php">Grepper Gold</a>-->
+</div>
+<div class="footer_nav_holder">
+    <h4> Documentation </h4>
+    <a href="/documentation.php#adding_a_code_snippet">Adding a Code Snippet</a>
+
+    <a href="/documentation.php#viewing_and_copy_snippets">Viewing & Copying Snippets </a>
+</div>
+<div class="footer_nav_holder">
+    <h4> Social </h4>
+        <a target="_blank" href="https://twitter.com/codegrepper"> <img src="https://d2441bdvuxbh7t.cloudfront.net/web/images/twitter.png" style="width:24px;position:absolute;left:-22px;top:14px;">Twitter </a>
+        <a target="_blank" href="https://facebook.com/codegrepper"> <img src="https://d2441bdvuxbh7t.cloudfront.net/web/images/facebook.png" style="width:16px;position:absolute;left:-22px;top:36px;">Facebook </a>
+</div>
+
+<div class="footer_nav_holder">
+    <h4> Legal </h4>
+    <a href="/privacy-policy.php">Privacy Policy</a>
+    <a href="/terms.php">Terms</a>
+</div>
+
+<div class="footer_nav_holder">
+    <h4> Contact </h4>
+    <a>support@codegrepper.com</a>
+</div>
+</div>
+
+<div class="clear"></div>
+</section>
+<script>
+//gets the type of browser
+function detectBrowser() {
+    if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
+        return 'Opera';
+    } else if(navigator.userAgent.indexOf("Chrome") != -1 ) {
+        return 'Chrome';
+    } else if(navigator.userAgent.indexOf("Safari") != -1) {
+        return 'Safari';
+    } else if(navigator.userAgent.indexOf("Firefox") != -1 ){
+        return 'Firefox';
+    } else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
+        return 'IE';//crap
+    } else {
+        return 'Unknown';
+    }
+}
+function convertToFireFox(){
+var els = document.getElementsByClassName("lead_click");
+    for(var i = 0; i < els.length; i++) {
+      els[i].innerHTML = els[i].innerHTML.replace("CHROME","FIREFOX");
+      els[i].href = "https://addons.mozilla.org/en-US/firefox/addon/grepper/"
+      //els[i].classList.remove("class_name");
+      els[i].className += " firefox_icon"
+    }
+}
+
+if(detectBrowser()==="Firefox"){
+    convertToFireFox();
+}
+
+function makeRequestToApp (method, url, data) {
+    var id = localStorage.getItem('user_id');
+    var token  = localStorage.getItem('access_token'); 
+  return new Promise(function (resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    window.currentHTTPRequest = xhr;
+
+    xhr.open(method, url);
+    if(typeof id !=='undefined'){
+        xhr.setRequestHeader("x-auth-id", id);   
+    }
+    if(typeof token !=='undefined'){
+        xhr.setRequestHeader("x-auth-token", token);   
+    }
+    
+    xhr.onload = function () {
+      if (this.status >= 200 && this.status < 300) {
+        resolve(xhr.response);
+      } else {
+        reject({
+          status: this.status,
+          statusText: xhr.statusText
+        });
+      }
+    };
+    xhr.onerror = function () {
+      reject({
+        status: this.status,
+        statusText: xhr.statusText
+      });
+    };
+    if(method=="POST" && data){
+        xhr.send(data);
+    }else{
+        xhr.send();
+    }
+  });
+
+}
+
+
+
+function loginOrRegister(is_login){
+    var user_id =  localStorage.getItem('user_id');
+    var token  = localStorage.getItem('access_token'); 
+     if(!user_id || !token){
+        showLoginPopup(is_login);
+     }else{
+         makeRequestToApp('POST', "/api/start_session.php?id="+user_id).then(function(d){
+        if(d != 1){
+            showLoginPopup(is_login);
+        }else{
+            window.location="/app/index.php";
+        }
+        });
+     }
+
+}
+
+function showLoginPopup(is_login){
+
+var  tp = document.createElement("div");
+     tp.classList.add('tays_popup2');
+     tp.setAttribute('id','tays_login_popup');
+     tp.addEventListener('mousedown',function(event){
+        if(event.target === this || event.target.classList.contains('tays_popup2_close_button')){
+            tp.parentNode.removeChild(tp);
+        }
+    }, false);
+
+var  tpi = document.createElement("div");
+     tpi.classList.add('tays_popup2_inner');
+
+
+var  tpi_close= document.createElement("div");
+     tpi_close.classList.add('tays_popup2_close_button');
+     tpi_close.textContent="X";
+     tpi.appendChild(tpi_close);
+
+var  tpic = document.createElement("div");
+     tpic.classList.add('tays_popup2_content');
+var  tpici = document.createElement("div");
+     tpici.classList.add('tays_popup2_content_inner');
+
+    tpic.appendChild(tpici);
+    tpi.appendChild(tpic);
+    tp.appendChild(tpi);
+    tp.style.display="block";
+
+    document.body.appendChild(tp);
+
+    if (typeof makeRequest !== "function") {
+    // This function exists
+    function makeRequest (method, url, data) {
+  return new Promise(function (resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    window.currentHTTPRequest = xhr;
+    xhr.open(method, url);
+    xhr.onload = function () {
+      if (this.status >= 200 && this.status < 300) {
+        resolve(xhr.response);
+      } else {
+        reject({
+          status: this.status,
+          statusText: xhr.statusText
+        });
+      }
+    };
+    xhr.onerror = function () {
+      reject({
+        status: this.status,
+        statusText: xhr.statusText
+      });
+    };
+    if(method=="POST" && data){
+        xhr.send(data);
+    }else{
+        xhr.send();
+    }
+  });
+}
+
+}
+
+
+
+    makeRequest('GET',"/app/register_html.php").then(function(html){
+        tpici.innerHTML=html;
+            window.isRegistrationPopup=true;
+        var loginScript = document.createElement('script');
+            loginScript.src="/app/js/register.js?v=4";
+            document.head.appendChild(loginScript);
+            loginScript.onload=function(){
+                var gScript = document.createElement('script');
+                gScript.src = "https://apis.google.com/js/client:platform.js?onload=renderSigninButton";
+                document.head.appendChild(gScript);
+                setIsLoginStatus(is_login);
+            }
+
+    });
+}
+</script>
+
+<style>
+#tays_login_popup{
+    background: rgba(0,0,0,.6);
+}
+#tays_login_popup.tays_popup2{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:block;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999999999;
+}
+#tays_login_popup .tays_popup2_inner {
+    background-color: #fff ;
+    box-shadow: 5px 5px 30px #555 ;
+    display: inline-block ;
+    position:relative ;
+    height: auto ;
+    min-height: 100px ;
+    vertical-align: middle ;
+    width: 400px;
+    position: relative ;
+    top:10% ;
+    border-radius: 8px ;
+    padding: 0px ;
+    text-align:left ;
+    overflow:hidden ;
+    cursor:auto ;
+}
+
+#tays_login_popup .tays_popup2_content{
+   width:100%;
+   min-height:200px;
+}
+#tays_login_popup .tays_popup2_close_button {
+    background-color:#24292e;
+    color:#fff;
+    /*border-radius: 50px;*/
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    z-index:10000000;
+}
+
+</style>
+
+
+
+
+
+  <script src="https://raw.githubusercontent.com/eligrey/FileSaver.js/master/src/FileSaver.js"></script>
+  <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+  <script src="//html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="js/clipboard.min.js"></script>
+  <script src="codemirror/lib/codemirror.js"></script>
+  <script src="codemirror/mode/javascript/javascript.js"></script>
+  <script src="codemirror/mode/php/php.js"></script>
+  <script src="codemirror/mode/clike/clike.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+        var elements = document.getElementsByClassName("lead_click");
+        for (var i = 0; i < elements.length; i++) {
+             elements[i].addEventListener("click", function(event) {
+
+            //gtag('event', 'conversion', {'send_to': 'AW-1030955762/apX0CI7o6qQBEPLFzOsD'});
+
+                var tracker = ga.getAll()[0];
+                if (tracker){
+                    tracker.send('event', 'Lead', 'Clicked', event.target.getAttribute("id"));
+                }
+            });
+        }
+
+//set the ga userid
+  var tracker = ga.getAll()[0];
+  var clientId = tracker.get('clientId');
+     makeRequest('GET',"//www.codegrepper.com/api/logpagevisit.php?cid="+clientId).then(function(data){
+
+     });
+
+//setTimeout(function(){
+//    saveImage();
+//}, 3000);//wait 2 seconds
+
+  </script>
+
+</body>
+
+</html>
+ 

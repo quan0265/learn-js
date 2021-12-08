@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>delegate</title>
+</head>
+<body>
+<!-- Kỹ thuật ủy quyền sự kiện sử dụng sự kiện sôi nổi -->
+
+<ul id="menu">
+    <li><a id="home">home</a></li>
+    <li><a id="dashboard">Dashboard</a></li>
+    <li><a id="report">report</a></li>
+</ul>
+
+<script type="text/javascript">
+	
+	// .addEventListener('click', event => {
+ //    if (event.target.className === 'tenclass') {
+ //      console.log('Click!');
+ //    }
+ //  });
+
+// https://www.javascripttutorial.net/javascript-dom/javascript-event-delegation/
+//The event delegation technique utilizes the event bubbling to handle event at a higher level in the DOM than the element on which the event originated.
+// Kỹ thuật ủy quyền sự kiện sử dụng sự kiện sôi nổi để xử lý sự kiện ở cấp cao hơn trong DOM so với phần tử mà sự kiện bắt nguồn
+
+let menu = document.querySelector('#menu');
+
+menu.addEventListener('click', (event) => {
+    let target = event.target;
+//target.id, target.className,...
+    switch(target.id) {
+        case 'home':
+            console.log('Home menu item was clicked');
+            break;
+        case 'dashboard':
+            console.log('Dashboard menu item was clicked');
+            break;
+        case 'report':
+            console.log('Report menu item was clicked');
+            break;
+    }
+
+    alert(target.tagName);
+
+    if(target.className == 'class1'){
+      alert(2);
+    }
+
+});
+
+// use jquery:
+// $('body').on('click', 'button', function(){
+// 	console.log(22);
+// })
+
+</script>
+  
+
+
+
+
+</body>
+</html>

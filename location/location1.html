@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>location</title>
+	<style>
+		.form-group{
+			border-bottom: 1px solid #D8D5D5;
+			max-width: 600px;
+			margin: auto;
+		}
+
+
+	</style>
+</head>
+<body>
+
+
+<h1 align="center">location</h1>
+<div class="form-group">
+	<h4>hash</h4>
+	<div class="hash"></div>
+</div>
+
+<div class="form-group">
+	<h4>search</h4>
+	<div class="search"></div>
+</div>
+
+<div class="form-group">
+	<h4>href</h4>
+	<div class="href"></div>
+</div>
+
+<div class="form-group">
+	<h4>hostname</h4>
+	<div class="hostname"></div>
+</div>
+
+<div class="form-group">
+	<h4>pathname</h4>
+	<div class="pathname"></div>
+</div>
+
+<div class="form-group">
+	<h4>protocol</h4>
+	<div class="protocol"></div>
+</div>
+
+
+<a href="#page?name=a&age=13">a-hash</a>
+
+<button class="button1">hash</button>
+<button class="btn_link">href</button>
+
+<script type="text/javascript">
+
+//file:///C:/Users/quan/Desktop/learn-js/location1/locaiton1.html#fsafd?a=132
+// file:///C:/Users/quan/Desktop/learn-js/location1/locaiton1.html?a=123#hash
+document.querySelector('.hash').textContent= window.location.hash;
+// #fsafd?a=132
+
+document.querySelector('.href').textContent= window.location.href;
+document.querySelector('.hostname').textContent= window.location.hostname;
+document.querySelector('.pathname').textContent= window.location.pathname;
+document.querySelector('.search').textContent= window.location.search;
+document.querySelector('.protocol').textContent= window.location.protocol;
+
+document.querySelector('.button1').onclick=function(){
+	window.location.hash= '#true';
+}
+
+document.querySelector('.btn_link').onclick=function(){
+	window.location.href= '#page?name=a&age=12';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

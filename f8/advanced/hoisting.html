@@ -1,0 +1,42 @@
+
+
+
+<script type="text/javascript">
+	
+	// biến var được hoisting và được mang giá trị undefined
+
+	console.log(age) //undefined
+	// console.log(fullname) //error
+	var age= 16 
+
+
+
+</script>
+
+
+<script type="text/javascript">
+	
+	const counter1= makeCounter()
+
+	console.log(counter1()) // 1
+
+
+
+
+	// console.log(leta) // let, const được hoisting lên nhưng không sử dụng được
+	let leta = 1
+
+
+	// hoisting function increase đưa lên đầu phạm vi
+	function makeCounter() {
+		let counter= 0
+		return increase
+		function increase() {
+			return ++ counter
+		}
+	}
+
+
+
+
+</script>

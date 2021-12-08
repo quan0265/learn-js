@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>dom innerText vs textContent</title>
+	<style type="text/css">
+		#heading{
+			
+		}
+	</style>
+</head>
+<body>
+<!-- 
+
+- DOM innerText vs textContent
+- DOM innerHTML vs outerHTML
+
+ -->
+
+<div id="heading">
+
+	<span style="display: none;">title</span>
+	<span>hello</span>
+
+</div>
+
+<script type="text/javascript">
+	
+	// show text hiển thị trên browser
+	console.log(document.querySelector('#heading').innerText);
+
+	// hiển thị text node: khoảng trắng, all text trong element
+	console.log(document.querySelector('#heading').textContent);
+
+	document.querySelector('#heading>span:nth-child(2)').innerHTML= '<i>1</i>';
+
+	console.log(document.querySelector('#heading>span:nth-child(2)').innerHTML)
+	console.log(document.querySelector('#heading>span:nth-child(2)').outerHTML)
+
+
+</script>
+
+
+
+
+</body>
+</html>

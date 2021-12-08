@@ -1,0 +1,98 @@
+<!-- 
+
+- Scope(phạm vi):
+	- Các loại phạm vi:
+		- Global - toàn cầu
+		- Code block - khối mã: let, const
+		- Local scope - hàm: var function
+	- Khi gọi mỗi hàm luôn có 1 phạm vi mới đươc tạo
+	- Các hàm có thể truy cập các biến được khai báo trong phạm vi của nó và bên ngoài nó
+	- Cách thức một biến được truy cập
+	- Khi nào một biến bị xóa khỏi bộ nhớ
+		- Biến toàn cầu
+		- Biến trong code block & trong hàm
+		- Biến trong hàm được tham chiếu bởi một hàm
+
+
+
+ -->
+
+ <script type="text/javascript">
+ 	// - Global - toàn cầu
+ 	// Hàm log được tạo ra ở phạm vi global, không nằm trong hàm nào khác nên ở đâu cũng truy cập được
+ 	function log() {
+ 		console.log('log')
+ 	}
+ 	function logger() {
+ 		log()
+ 	}
+ 	// logger()
+
+	// - Code block - khối mã: let, const
+	{
+		const age= 18
+	}
+	// console.log(age) //error
+
+	// - Local scope - hàm: var function
+	// Khai báo var trong 1 code block bao gồm cả if, esle, for, while, ... nhảy ra phạm gần nhất ở bên ngoài
+	{
+		if(true){
+			var var_age= 18
+		}
+	}
+	console.log(var_age)
+
+
+	// Khai báo trong hàm thì chỉ thuộc phạm vi hàm
+ 	function func1() {
+ 		var funct_var1= 'var 1';
+ 	}
+ 	func1()
+ 	// console.log(funct_var1); // error
+
+
+ 	// - Các hàm có thể truy cập các biến được khai báo trong phạm vi của nó và bên ngoài nó
+ 	function func2() {
+ 		const age1= 19
+ 		function func22() {
+ 			// có thể truy cập biến const age1 bên ngoài
+ 			console.log(age1)
+ 		}
+ 		func22()
+ 	}
+ 	func2()
+
+
+ 	//- Cách thức một biến được truy cập
+ 	// - from trong ra ngoài, from trong phạm vi đó -> phạm vi ngoài cùng
+ 	const age3= 20
+ 	{
+ 		const age3= 18
+ 		{
+ 			const age3 = 14
+ 			{
+ 				// 14
+ 				console.log(age3)
+ 			}
+ 		}
+ 	}
+
+
+
+
+
+ 	function makeCouter() {
+ 		let couter= 0
+ 		function increase() {
+ 			return ++ couter
+ 		}
+ 		return increase
+ 	}
+ 	const increase= makeCouter()
+ 	console.log(increase()) // 1
+ 	console.log(increase()) // 2
+
+
+
+ </script>

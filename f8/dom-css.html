@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>dom css</title>
+</head>
+<body>
+
+<div class="box"></div>
+
+<!-- 
+
+- DOM css:
+	- All style: el.style
+
+ -->
+
+<script type="text/javascript">
+	
+	var boxElement= document.querySelector('.box');
+
+	// all style
+	console.log(boxElement.style);
+
+	// Object.assign(boxElement.style, {
+	// 	width: '200px',
+	// 	height: '100px',
+	// 	backgroundColor: 'green'
+	// })
+
+	console.log(boxElement.style.width)
+	console.log(boxElement.style.fontSize)
+
+	Object.assign(document.querySelector('.box').style, {
+	    backgroundColor: '#F05123'
+	})
+
+
+
+
+</script>
+
+</body>
+</html>

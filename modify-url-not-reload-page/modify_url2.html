@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>modify</title>
+</head>
+<body>
+
+<h1>modify</h1>
+
+<button class="push">push</button>
+<button class="replace">replace</button>
+<button onclick="history.back()">back</button>
+<button onclick="history.forward()">forward (next)</button>
+
+
+
+
+
+
+
+<script type="text/javascript">
+	// Current URL: https://my-website.com/page_a
+const nextURL = 'a.html';
+const nextTitle = 'My new page title';
+const nextState = { additionalInformation: 'Updated the URL with JS' };
+
+// This will create a new entry in the browser's history, without reloading
+// window.history.pushState(nextState, nextTitle, nextURL);
+
+// This will replace the current entry in the browser's history, without reloading
+// window.history.replaceState(nextState, nextTitle, nextURL);
+
+document.querySelector('.push').onclick= function(){
+	window.history.pushState(nextState, nextTitle, nextURL);
+}
+
+document.querySelector('.replace').onclick= function(){
+	window.history.replaceState(nextState, nextTitle, nextURL);
+}
+
+// Current URL: https://my-website.com/page_a
+// const nextURL = 'https://my-website.com/page_b';
+
+// This will create a new entry in the browser's history, reloading afterwards
+// window.location.href = nextURL;
+
+// This will replace the current entry in the browser's history, reloading afterwards
+// window.location.assign(nextURL);
+
+// This will replace the current entry in the browser's history, reloading afterwards
+// window.location.replace(nextURL);
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

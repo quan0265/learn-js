@@ -1,0 +1,573 @@
+
+<!doctype html>
+<html>
+<head>
+<meta name="google-signin-client_id" content="276024493641-c112g6aqcrc4bt62clgm8oasrbkomj8j.apps.googleusercontent.com">
+<link rel="icon" href="https://d2441bdvuxbh7t.cloudfront.net/web/images/favicon.ico">
+<link rel="stylesheet" href="https://d2441bdvuxbh7t.cloudfront.net/app/css/reset.css">
+<link rel="stylesheet" href="/app/semantic/tays_semantic.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://d2441bdvuxbh7t.cloudfront.net/app/css/main.css">
+<link rel="stylesheet" href="https://d2441bdvuxbh7t.cloudfront.net/app/css/popup.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:100" rel="stylesheet">
+
+<!--move stupid jquery and bootstrap up top-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<!--end stupid 3rd party stuff-->
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color:#55468c !important;">
+  <a class="navbar-brand" href="/app/index.php" style="color: rgba(255,255,255,.7);font-size:26px;font-weight:100;font-family:'Poppins', sans-serif;">
+    <img class="grepper_nav_logo" src="https://d2441bdvuxbh7t.cloudfront.net/web/images/logo_white_small.png">
+    Grepper 
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    <li class="nav-item mr-2">
+        <a class="nav-link" href="/search.php">
+        <i class="icon search"></i> Search</a>
+      </li>
+      <li class="nav-item mr-2">
+        <a class="nav-link" href="/app/index.php">
+        <i class="icon users"></i> Community</a>
+      </li>
+      <li class="nav-item  mr-2">
+        <a class="nav-link" href="/app/feed.php">
+        <i class="icon newspaper"></i> Feed</a>
+      </li>
+
+      <li class="nav-item mr-2">
+        <a class="nav-link" href="/app/answer.php">
+        <i class="icon code"></i>
+        Answer</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/app/docs.php">
+        <i class="icon file alternate"></i>
+        Docs</a>
+      </li>
+
+    </ul>
+
+    <!--
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    -->
+  </div>
+  <div class="navbar-collapse  w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+
+<!--
+         <li class="nav-item">
+            <a class="nav-link" href="twiter"><i class="icon facebook"></i></a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="twiter"><i class="icon twitter"></i></a>
+         </li>
+--> 
+
+
+     <li class="nav-item">
+        <a href="/app/notifications.php" class="nav-link notification_nav_item mr-1" >
+              <i class="icon bell" style="margin:0px;padding:0px;"></i>
+                      </a>
+    </li>
+
+         <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"
+        href="#" 
+        id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <img id="profile_image_dropdown" src="/profile_images/50_50/615640_HzBGbKUmip83REpbLUWbTcxoJBB687TbXfCEPb28SgTZwsFArEo6f1P.jpg">
+        </a>
+        <div class="dropdown-menu dropdown-menu-right grepper_user_account_dropdown" aria-labelledby="navbarDropdown">
+          <h5 class="text-center m-2">My Account </h5>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" id="my_profile_link" href="/profile/nong-quan">Profile</a>
+          <a class="dropdown-item" href="/app/my_answers.php">Answers</a>
+          <a class="dropdown-item" href="/app/stats.php">Stats</a>
+          <a class="dropdown-item" href="/app/teams.php">Teams</a>
+          <a class="dropdown-item" href="/app/addons.php">Add-Ons</a>
+            <!--
+            <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/app/my_grepper_gold.php" style="padding-left:54px;position:relative;">
+               <img src="/images/grepper_coin.png" style="width:30px;position:absolute;left:18px;top:1px;">
+              My Grepper Gold (0)</a>
+              -->
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/app/settings-code-languages.php">Settings</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" onclick="grepper_logout()">Log Out</a>
+        </div>
+      </li>
+        <!--
+            <li class="nav-item">
+                <a class="nav-link" href="#">Right</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            -->
+        </ul>
+    </div>
+</nav>
+
+<script>
+//document.getElementById("my_profile_link").href="/app/profile.php?id="+ localStorage.getItem('user_id');
+</script>
+<script>
+
+
+</script>
+
+<div id="content" class="container pt-3">
+
+
+<title id="page_title">My Profile</title>
+<link rel="stylesheet" href="/app/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="/app/codemirror/theme/prism-okaidia.css">
+<link rel="stylesheet" href="/app/css/profile.css">
+
+<style>
+.TaysCodeMirror {
+  border: 1px solid #eee;
+  height: auto;
+}
+</style>
+
+<input type="hidden" value="615640" id="my_user_id">
+<div id="status"></div>
+<br/> <br/>
+
+<div id="left_column_medium">
+    <div id="profile_container">
+       <img id="profile_image_edit" src="/app/img/default_profile.png" />
+       <div style="display:none" id="profile_image_edit_show">Edit <br/>Profile Image</div>
+       <input type="file" id="profile_image_input" style="display:none;" >
+    </div>
+
+        <div id="fun_name_text" class="larger"></div>
+
+    <!-- start belt system holder -->
+    <div id="belt_system_holder" style="width:200px;display:none;">
+            <div class="box"> 
+                <li id="overallbelt" class="belt overall">
+                    <div id="overall_rank">Dev Ranking (<span id='overall_belt_color'>White</span> Belt) </div>
+                </li> 
+            </div>
+        <div style="clear:both"></div>
+    </div>
+   
+    <div style="width:200px;" id="rank_privacy"></div>
+
+    <br/>
+    <!-- end belt system holder -->
+
+
+    <div id="real_name_holder" style="display:none;">
+    <i class="icon smile outline" ></i> 
+    <span id="real_name_text"></span>
+    </div>
+
+
+    <div id="twitter_name_text_holder" style="display:none;">
+        <i class="icon twitter" style="color:#00acee"></i> 
+        <a id="twitter_name_text" target="_blank"></a>
+    </div>
+
+    <div id="location_text_holder" style="display:none;">
+        <i class="icon map marker alternate"></i> 
+        <span id="location_text" target="_blank"></span>
+    </div>
+
+            
+   
+    <a id="followButton" type="button"  is_following="0" style="width:198px;text-align:center;margin-top:4px;" class="btn btn-primary" onclick="follow(this,615640)">Follow</a>
+        <a style="display:none;width:198px;text-align:center;margin-top:4px;" id="editProfileButton" type="button" class="btn btn-primary" onclick="editProfile()" >Edit Profile </a>
+        <div class="profile_followers">
+        <div class="box1">
+            <div class="larger" style="margin-bottom:10px;border-bottom:1px solid #ccc;">Followers </div>
+                <a title="Xabos" href="/profile/xabos"  class="no_ul">
+    <div class="user_snippet user_snippet_small"> 
+        <img src="/profile_images/50_50/192020_rF768Pyz0EQ1p3ZyIZoOl48CcsNmIZ4G1wnmfiRztkBjX5YO7BuBbf7.gif">
+        <span class="fun_name">Xabos</span>
+                    <span class="user_belt_rank_snippet belt blue"></span>
+        </div></a>
+        </div>
+    </div>
+    
+
+    <!--
+    <div id="realname_holder" class="editable_input_holder edit_icon_hover_show">
+        <span id="real_name_text" class="lighter show_text"></span>
+        <span class="edit_icon"></span>
+        <input id="real_name_input" >
+        <span onclick ="saveRealName(event,this)" title="Set" class="set_input">✓</span>
+        <span title="Delete" class="delete_input">x</span>
+    </div>
+    -->
+
+
+</div>
+
+<div id="right_column_medium">
+
+
+
+<div class="box1">
+    <div class="larger">
+    <span class="username_text"></span> has helped <span class="brand_green bold" id="developers_helped_text"></span> Developers find answers to  <span  id="hits_text" class="brand_purple bold"></span> problems.
+    </div>
+    <div id="donate_link_text_holder" style="display:none">
+            <div class="a-center">
+                <br/> Help <span class="username_text"></span> keep up the good work by giving them a donation. 
+            </div>
+            <br/>
+            <div class="a-center">
+                <a class="btn btn-primary" target="_blank" id="donate_link_text">Donate to <span class="username_text"></span> </a>
+            </div>
+            <br/>
+    </div>
+</div>
+<br/>
+        <div class="box1">
+        <div class="larger" id="help_with_donate" style="display:none"> Or here is another way you can thank <span class="username_text"></span>: </div>
+        <div class="larger" id="help_with_no_donate" > Here is a way you can thank <span class="username_text"></span>: </div>
+        <div id="how_to_help_text"> </div>
+    </div>
+        
+
+    <br/>
+
+    
+    <div class="box1" id="coding_activity_box" style="display:none;position:relative;">
+
+        <a class="help_icon" onclick="showCodingActivityHelpVideo()" style="position:absolute;top:5px;right:5px;">?</a>
+    
+        <div class="larger" style="margin-bottom:10px;"> <span class="username_text"></span>'s Coding Activity <span id="activity_enabled_holder"></span></div>
+<div id="coding_activity_is_enabled_holder" style="display:none;">
+
+<!--expertise start -->
+
+<div id="profileChartHolder">
+        <div id="user_coding_experience"><span class="username_text"></span>'s Coding Expertise <span id="activity_expertise_privacy"></span></div>
+                    <div style="text-align:center;" id="is_expertise_private_holder">
+            <a style="color:#fff;" id="linked_share_expertise_profile" class="linkedin_button" onclick="window.open('https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=781flwdh6oiewz&redirect_uri=http%3A%2F%2Fwww.codegrepper.com%2Fapp%2Flinkedin_auth.php&state=foobar&scope=w_member_social%20r_liteprofile','targetWindow',
+                                       `toolbar=no,
+                                        location=no,
+                                        status=no,
+                                        menubar=no,
+                                        scrollbars=yes,
+                                        resizable=yes,
+                                        width=782,
+                                        height=800`)"
+
+            > Share My Coding Expertise on LinkedIn</a>
+            </div>
+        
+
+         <canvas width="757" height="600" style="display:block;margin:0 auto;" id="profileChart"></canvas>
+</div>
+<!--expertise end -->
+
+        <div id="user_yearly_coding_activity_header"><span id="user_coding_activity_header_date"></span> Yearly Coding Overview <span id="activity_privacy"></span> </div>
+        <div id="user_historical_coding_activity_months"> 
+            <div class="a_month">Jan</div>
+            <div class="a_month">Feb</div>
+            <div class="a_month">Mar</div>
+            <div class="a_month">Apr</div>
+            <div class="a_month">May</div>
+            <div class="a_month">Jun</div>
+            <div class="a_month">Jul</div>
+            <div class="a_month">Aug</div>
+            <div class="a_month">Sep </div>
+            <div class="a_month">Oct</div>
+            <div class="a_month">Nov</div>
+            <div class="a_month">Dec</div>
+        </div>
+
+            <div id="user_historical_coding_activity"></div>
+            <div id="user_historical_coding_activity_top_languages_title"><span class="username_text"></span>'s Top Languages  </div>
+            <div id="user_historical_coding_activity_top_languages"> </div>
+
+          <div id="user_historical_coding_activity_top_frameworks_title" style="margin-top:5px;margin-bottom:2px;"><span class="username_text"></span>'s Top Frameworks  </div>
+            <div id="user_historical_coding_activity_top_frameworks"></div>
+
+        <div style="display:none" id="user_historical_coding_activity_holder">
+            <div id="user_daily_coding_activity_header"><span id="user_coding_activity_header_date"></span> Coding Activity <span id="daily_activity_privacy"></span> </div>
+
+            <div id="user_historical_coding_activity_day"> </div>
+        </div>
+
+    </div>
+    <!--end is enabled holder-->
+
+    </div>
+    <br style="display:none;" id="coding_activity_box_br" />
+     
+   <div class="box1">
+        <div class="larger">Top Answers by <span class="username_text"></span> </div>
+        <ul class="top_answers" id="top_answers">
+        </ul>
+    </div>
+
+
+
+
+
+</div>
+<div class="clear-both"></div>
+
+<div class="tays_popup2" id="edit_profile_popup">
+    <div class="tays_popup2_inner">
+        <div class="tays_popup2_close_button">X</div>
+            <div class="tays_popup2_content">
+
+                <div class="tays_popup2_header1">
+                 Edit Profile
+                </div>
+                <div class="tays_popup2_content_inner">
+                <div class="ui form">
+                      <div class="field">
+                        <label>Grepper Fun Name <span class="tays_label_desc">(Be funny, this name will show on all your answers)</span> </label>
+                        <input type="text" id="fun_name_input" placeholder="Grepper Name">
+                      </div>
+                      <div class="field">
+                        <label>Real Name</label>  
+                        <input type="text"  id="real_name_input" placeholder="Real Name">
+                      </div>
+
+                       <div class="field">
+                       <label>Twitter Handle</label>  
+                        <div class="ui labeled input icon">
+                            <div class="ui label">@</div>
+                            <input type="text" id="twitter_name_input" placeholder="Twitter Handle">
+                            <i class="twitter icon" style="color:#00acee"></i>
+                          </div>
+                       </div>
+                     <div class="field">
+                        <label>Location</label>  
+
+                        <div class="ui labeled input icon">
+                        <input type="text"  id="location_input" placeholder="Location">
+                        <i class="map marker alternate icon" style=""></i>
+                        </div>
+                      </div>
+                        <div class="field">
+                        <label>Paypal Donation URL <span class="tays_label_desc">See donation url setup <a href="https://www.codegrepper.com/documentation.php#donation_url_setup" target="blank" style="text-decoration:underline;">instructions here</a></span></label>  
+                        <input type="text"  id="donate_link_input" placeholder="Paypal Donation URL">
+                      </div>
+                         <div class="field">
+                            <label>How can other Devs thank you? <br/><span class="tays_label_desc">Need project help,promote a cause your passionate about, look to get hired, ask for a little favor from other Devs here. Be reasonable...</span> </label>
+                            <textarea rows="3" id="how_to_help_input"></textarea>
+                          </div>
+
+                      <button id="save_profile" class="button1">Save</button>
+                    </div>
+   
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/app/js/popup.js"></script>
+<div class="tays_popup2_help_video" id="code_activity_help_video">
+    <div class="tays_popup2_inner_help_video">
+        <div class="tays_popup2_close_button_help_video">X</div>
+            <div class="tays_popup2_content">
+
+                <div class="tays_popup2_header1">
+                Coding Activity Feature Help Video 
+                </div>
+                <div class="tays_popup2_content_inner">
+                 <iframe id="help_video1" class="box1" style="width:740px;height:400px;" src="https://www.youtube.com/embed/-_x7MMhTwt4?enablejsapi=1" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+function setupPopupsHelp(){
+var classname = document.getElementsByClassName("tays_popup2_help_video");
+
+for (let i = 0; i < classname.length; i++) {
+    classname[i].addEventListener('mousedown',function(event){
+        if(event.target === classname[i] || event.target.classList.contains('tays_popup2_close_button_help_video')){
+            this.style.display="none";
+            document.getElementById("help_video1").contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+        }
+    }, false);
+}
+
+}
+setupPopupsHelp();
+</script>
+</div>
+
+<!--
+<div class="userContent"></div>
+-->
+
+<!--
+<div id="gSignIn">sign in</div>
+-->
+
+
+<br/> <br/> <br/>
+<br/> <br/> <br/>
+</body>
+<div id="feedback_trigger_holder" style="display:none;">
+    <div onclick="hideFeedbackButton()" class="tays_popup2_close_button_feedback">&#8722;</div>
+    <h1>We Need Feedback </h1>
+    <a class="btn btn-primary" id="send_feedback_start">Send Feedback</a>
+    <div style="width:100%;height:5px;"></div>
+</div>
+
+<div id="feedback_trigger_plus" >
+    <div onclick="showFeedbackButton()" class="tays_popup2_close_button_feedback">+</div>
+</div>
+<div class="tays_popup2" id="send_feedback_popup">
+    <div class="tays_popup2_inner">
+        <div class="tays_popup2_close_button">X</div>
+            <div class="tays_popup2_content">
+
+                <div class="tays_popup2_header1">
+                 Send Feedback 
+                </div>
+                <div class="tays_popup2_content_inner">
+                <div class="ui form">
+                      <div class="field">
+                        <label>Send Feedback <span class="tays_label_desc">(Leave product feedback, report a bug, share your ideas)</span> </label>
+                        <textarea type="text" id="feedback_input" placeholder="Tell us your feedback..."></textarea>
+                      </div>
+
+                      <button id="send_feedback" class="button1">Send</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://d2441bdvuxbh7t.cloudfront.net/app/js/popup.js"></script>
+
+</html>
+
+<!--<script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>-->
+<script src="https://d2441bdvuxbh7t.cloudfront.net/app/js/utils.js"></script>
+<script>
+function grepper_logout(){
+    makeRequest('GET',"/api/logout.php").then(function(d){
+        //sign out of google if we need to 
+        //note if plugin is insatlled these all get reset right away
+    localStorage.setItem('user_id', ""); 
+    localStorage.setItem('access_token',"");
+    localStorage.setItem('email',"");
+    localStorage.setItem('chrome_id',"");
+
+    var gScript = document.createElement('script');
+        gScript.src = "https://apis.google.com/js/client:platform.js?onload=completeLogout";
+        document.head.appendChild(gScript);
+    });
+}
+function completeLogout(){
+    gapi.auth2.init({ client_id: '276024493641-c112g6aqcrc4bt62clgm8oasrbkomj8j.apps.googleusercontent.com'}).then(function(auth2){
+        if(auth2.isSignedIn.get()){
+            auth2.signOut().then(function () {
+                window.location="/index.php";
+            });
+            auth2.disconnect();
+        }else{
+            window.location="/index.php";
+        }
+    });
+  }
+</script>
+
+
+
+
+<script>
+
+document.getElementById('send_feedback_start').addEventListener('click', function(){
+    document.getElementById('send_feedback_popup').style.display="block";
+});
+
+document.getElementById('send_feedback').addEventListener('click', function(){
+        var d={}
+        d.feedback=document.getElementById("feedback_input").value;
+        makeRequest('POST', prod_api+"/send_feedback.php",JSON.stringify(d)).then(function(){
+            document.getElementById('send_feedback_popup').style.display="none";
+            alert("Thanks so much! Your feedback has been submitted and will be reviewed by our dev team.");
+            //location.reload();
+        })
+
+});
+
+function showFeedbackButton(){
+    document.getElementById("feedback_trigger_holder").style.display="block";
+    document.getElementById("feedback_trigger_plus").style.display="none";
+    makeRequest('GET',"/api/hide_feedback.php?hide_feedback=0").then(function(){ });
+}
+
+function hideFeedbackButton(){
+    document.getElementById("feedback_trigger_holder").style.display="none";
+    document.getElementById("feedback_trigger_plus").style.display="block";
+    makeRequest('GET',"/api/hide_feedback.php?hide_feedback=1").then(function(){ });
+}
+
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142853949-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-142853949-1');
+</script>
+
+
+<script src="/app/codemirror/lib/codemirror.js"></script>
+<script src="/app/codemirror/mode/javascript/javascript.js"></script>
+
+
+<script src="/app/js/utils.js"></script>
+
+
+<script>
+var  user_id=615640;
+</script>
+<script src="/app/js/my_profile.js"></script>
+
+<script>
+if(user_id == localStorage.getItem('user_id')){
+    get_belt_rank();
+}
+if(user_id != localStorage.getItem('user_id')){
+    get_belt_rank();
+}
+ 
+</script>
+
+
+<script src="/app/js/coding_activity.js"></script>
+

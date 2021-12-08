@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>form</title>
+</head>
+<body>
+
+
+
+
+<script type="text/javascript">
+    
+function objToArray(obj){
+    let arr= [];
+    let keys= Object.keys(obj);
+    let values= Object.values(obj);
+    for(let i=0; i<keys.length; i++){
+        arr[keys[i]]= values[i];
+    }
+    return arr;
+}
+
+function showErrors(obj, id_out){
+    document.querySelectorAll('.form_error').forEach(item=> item.innerHTML='');
+    for (let [key, value] of Object.entries(obj)) {
+        value.forEach(value1=> {
+            // document.querySelector(id_out+" .error-"+key).innerHTML+= '<span>'+value1+'</span>';
+            let x= document.querySelector(id_out+" .error-"+key);
+            if(x){
+                x.innerHTML+= '<span>'+value1+'</span>';
+            }
+        })
+    }
+}
+
+function delObj(obj1, arr=[]){
+    let obj= Object.assign({}, obj1);
+    for(let i=0; i<arr.length; i++){
+        if(obj[arr[i]]){
+            delete obj[arr[i]];
+        }
+    }
+    return obj
+}
+
+function showEdit(obj, id_out, arr_pass=[]){
+    document.querySelectorAll('.form_error').forEach(item=> item.innerHTML='');
+    if(arr_pass){
+        obj= delObj(obj, arr_pass);
+    }
+    for (let [key, value] of Object.entries(obj)) {
+        let x=document.querySelector(id_out+" .form-"+key);
+        if(x){
+            x.value= value;
+        }
+    }
+}
+
+
+
+
+
+// var cart={
+//  "product_id": 12,
+//  "var_id": 13,
+//  "title": "name1",
+//  "image": "a.com",
+//  "quantity": 15,
+//  "price": 12
+
+// }
+
+// var carts= [];
+// carts.push(cart);
+// carts.push(cart);
+// carts.push(cart);
+function hasCart(carts=[], cart={}){
+    if(carts.length==0){
+        return false;
+    }
+
+    for(let i=0; i<carts.length; i++){
+        if(cart.var_id==0){
+            if(cart.product_id==carts[i].product_id) return true;
+        }
+        else{
+            if(cart.var_id==carts[i].var_id) return true;
+        }
+    }
+    return false;
+}
+
+
+//check 1 elemnt có trong màn hình đang hiển thị không, use: khi scroll window check btn add cart có trên screen khôn
+//thì cho hiển thị fixed btn add cart
+function checkVisible( elm, evalType ) {
+    evalType = evalType || "visible";
+ 
+    var vpH = $(window).height(), // Viewport Height
+        st = $(window).scrollTop(), // Scroll Top
+        y = $(elm).offset().top,
+        elementHeight = $(elm).height();
+ 
+    if (evalType === "visible") return ((y < (vpH + st)) && (y > (st - elementHeight)));
+    if (evalType === "above") return ((y < (vpH + st)));
+}
+// if(checkVisible('.elemnt')){  }
+
+function isInVisibleArea1(elem) {
+    if (!elem || !elem.getBoundingClientRect()) return false;
+    //console.log("test2");
+    var rect = elem.getBoundingClientRect();
+
+    if (rect.top < window.innerHeight && rect.bottom > 0 &&
+        rect.left < window.innerWidth && rect.right > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+jQuery(function($) {
+    $(window).scroll(function() {
+        var isInVisible = isInVisibleArea1($('.isInVisible').get(0));
+
+
+        var view_top_height = $('.isInVisible').offset().top - $(window).scrollTop();
+        //console.log(view_top_height);
+
+        // console.log(isInVisible);
+        //neu 1 el khong co tren man hinh va scrolly > scrolltop el
+        if (!isInVisible && (view_top_height < 0)) {
+            $('.topBarProductFixed').addClass('active');
+        } else {
+            $('.topBarProductFixed').removeClass('active');
+        }
+    });
+});
+
+
+
+
+// copy code
+function coppyToClipboard(text) {
+    var input = document.createElement("textarea");
+    document.body.appendChild(input);
+    input.value = text;
+    input.select();
+    input.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    document.body.removeChild(input);
+}
+
+function checkEmail1(email) {
+    let re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
+function checkEmail(email) {
+    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+function checkPattern(name) {
+    var pattern = /^[a-zA-Z0-9]*$/;
+    if( !name.match(pattern)) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+
+
+
+
+</script>
+
+
+
+<script type="text/javascript">
+let dataTransfer = new DataTransfer();
+
+var fileReader = new FileReader();
+
+// lấy các giá trị form
+var form_data = new FormData(document.querySelector('#form'));
+
+// thêm giá trị
+form_data.append('name', 'value');
+
+$.ajax({
+    method: 'post',
+    url: '/name.php',
+    dataType: 'text',
+    cache: false,
+    contentType: false,
+    processData: false,
+    data: form_data,
+    success: function(res) {
+        console.log(res);
+    }
+})
+
+error	Một đối tượng DOMException mô tả lỗi xẩy ra trong quá trình đọc nguồn dữ liệu.
+readyState	Một con số mô tả trạng thái của FileReader. Các giá trị có thể là: 0, 1, 2.
+result	Nội dung của nguồn dữ liệu sau khi đọc thành công. Định dạng của nó tùy thuộc vào phương thức nào được sử dụng
+
+FileReader.EMPTY	0	Chưa có dữ liệu nào được tải (load)
+FileReader.LOADING	1	Dữ liệu đang được tải.
+FileReader.DONE	2	Toàn bộ dữ liệu đã được tải.
+
+$('#ss-detail .form-write-image-add input').onchange= function(){
+// if(this.files){
+    if(this.files.length == 0){
+        this.files= imageAddFile;
+    }
+    $$('.form-write-image-item').forEach(item => {
+        item.style.display= 'none';
+        item.querySelector('img').setAttribute('src', '');
+    });  
+    for(let i= 0; i<this.files.length; i++){
+
+        $$('.form-write-image-item')[i].style.display= 'flex';
+        let reader = new FileReader();
+        reader.readAsDataURL(this.files[i]);
+        //.onload, onerror, onloadend...
+        reader.onload= function(e){
+            $$('#ss-detail .form-write-image-item img')[i].setAttribute('src', e.target.result);
+        }  
+    }
+    if(this.files.length >= 5){
+        // $('.form-write-image-add').style.display= 'none';
+    }
+    else{
+        // $('.form-write-image-add').style.display= 'block';
+    }
+    imageAddFile= this.files;
+// }
+}
+
+
+
+
+// get tham số trên url hiện tại
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+
+function htmlentities_decode() {
+    return str.replace(/&#(\d+);/g, function(match, dec) {
+        return String.fromCharCode(dec);
+    });
+}
+
+function htmlencode (str){
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+function htmldecode (str){
+    var txt = document.createElement('textarea');
+    txt.innerHTML = str;
+    return txt.value;
+}
+
+
+
+</script>
+
+</body>
+</html>

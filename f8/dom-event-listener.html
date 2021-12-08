@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>dom event listener</title>
+</head>
+<body>
+	
+<!-- 
+
+- Dome event listener:
+	- Xử lý nhiều việc khi 1 event xảy ra
+	- Lắng nghe / hủy bỏ lắng nghe
+	- Hủy bỏ event click bằng cách setTimeout gán cho 1 function rỗng
+	
+
+
+
+ -->
+
+
+
+	<button>Click</button>
+
+	<script type="text/javascript">
+		
+		var btn= document.querySelector('button');
+
+		btn.onclick= function() {
+			// work 1
+			console.log('work 1');
+
+			// work 2
+			console.log('work 2');
+
+			// work 3
+			console.log('work 3');
+		}
+
+		// sao time hủy bỏ event
+		setTimeout(function(){
+			btn.onclick= function() {}
+		}, 3000)
+
+	</script>
+
+	
+	<hr><br>
+	<button class="button1">CLick</button>
+
+	<script type="text/javascript">
+		
+		var btn1= document.querySelector('.button1');
+
+		function work1() {
+			console.log('work 1');
+		}
+
+		function work2() {
+			console.log('work 2');
+		}
+
+		btn1.addEventListener('click', work1);
+		btn1.addEventListener('click', work2);
+
+
+
+	</script>
+
+
+</body>
+</html>

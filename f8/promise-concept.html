@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>promise define active</title>
+</head>
+<body>
+	
+<!-- 
+
+- promise define active
+	1. new Promise
+	2. Executor
+	- Có 3 trạng thái:
+		- Pendding
+		- Fulfilled(thành công)
+		- Rejected
+	- Khi resolve được gọi thì then được gọi
+	- Khi reject được gọi thì catch được gọi
+	- Khi resolve hoặc reject được gợi thì finally được gọi
+	- Khái niệm: 
+		- promise dùng để xử lý các thao tác bất đồng bộ, trước khi có promise thì dùng callback, callback thì xảy ra vấn đề là callback hell, code rối khó hiểu, promise dùng để khắc phục tình trạng callback hell, code dễ đọc dễ hiểu hơn
+		- Để tạo ra được promise sử dụng kewword new Promise và trong constructor của nó truyền vào 1 excutor function, trong excutor function có 2 tham số, khi excutor thực thi nhận được 2 tham sô resolve, reject. Gọi resolve khi thao tác xử lý thành công, gọi reject khi thao tác xử lý thất bại
+		- Khi chúng ta sử dụng promise đối tượng promise được tạo ra chúng ta sử dụng các phương thức là then, catch, fanally đều nhận callback function
+		- Khi promise được resolve thì thực thi then
+		- Khi promise được reject thì thực thi catch
+		- Khi promise được resolve hoặc reject thực thi finally
+
+
+	// Memory leak
+
+ -->
+
+
+
+
+<script type="text/javascript">
+	
+	var promise= new Promise(
+		//Excutor
+		function(resolve, reject) {
+			// Logic
+			// Thành công: resolve()
+			// Thất bại: reject()
+			
+
+			// resolve();
+			// reject();
+
+
+			// resolve([
+			// 	{
+			// 		id: 1,
+			// 		name: 'javascript'
+			// 	}
+			// ]);
+
+
+			reject('Error');
+
+
+		}
+	)
+
+	promise
+		.then(function(course) {
+			console.log(course);
+		})
+		.catch(function(error) {
+			console.log(error);
+		})
+		.finally(function() {
+			// Khi promise được resolve hoặc reject thực thi finally 
+			console.log('Done');
+		})
+
+
+	// Có 3 trạng thái:
+	// Pendding
+	var promise1= new Promise(
+		function(resolve, reject) {
+
+		}
+	)
+	console.log(promise1)
+
+	// Fulfilled(thành công)
+	var promise2= new Promise(
+		function(resolve, reject) {
+			resolve('Success')
+		}
+	)
+	console.log(promise2)
+
+	var promise3= new Promise(
+		function(resolve, reject) {
+			reject('Error')
+		}
+	)
+	// console.log(promise3)
+	promise3	
+		.catch(function(result) {
+			// console.log(result);
+		})
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!-- 
+- Let, const:
+	- Var / Let, Const: Scope(phạm vi), Hosting
+	- Const / Var, Let: Assignment
+	// Code block: if else, loop, {}, ...
+
+
+
+ -->
+
+<script type="text/javascript">
+	// if(true) {
+
+	// }
+
+
+	// viết tắt bỏ đi if(true):
+
+
+	// Scope
+
+	{
+		var var1= 'hello';
+		let let1= 'hello';
+		const const1= 'hello';
+	}
+
+	console.log(var1);
+	// console.log(let1); //error
+	// console.log(const1); //error
+
+
+	{
+		const const2= 'hello';
+		// Khai báo lại const cùng cấp error
+		// const const2= 'hello1'; //error
+
+		{
+			{
+				// const: khai báo khác cấp -> ok
+				const const2= 'hello2';
+			}
+		}
+
+	}
+
+
+
+	// Hosting: var hỗ trợ
+
+	a= 1;
+	var a;
+
+
+	// const không thể gán lần thứ 2
+	const b= 3;
+	// b= 3; //error
+
+
+	// const thay đổi thuộc tính thì đươc
+	const obj= {
+		name: 'name'
+	}
+	obj.name= 'name1';
+
+
+
+
+
+
+
+
+
+</script>

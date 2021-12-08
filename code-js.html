@@ -1,0 +1,60 @@
+
+<h1>hello</h1>
+<script type="text/javascript">
+	
+const h1= document.querySelector('h1')
+
+// hiển thị element
+console.log(h1)
+
+// hiển thị all method of element
+console.log([h1])
+
+//  hiên thị all propety của 1 element
+console.dir(h1) 
+// Hiển thị dữ liệu theo dạng cây phân cấp, bạn có thể tương tác để xem các thuộc tính bên trong.
+
+console.table(h1): 
+// cho phép hiển thị dữ liệu dưới dạng bảng. Không chỉ dùng cho các dữ liệu dạng bảng, console.table() còn có thể đọc các thuộc tính của đối tượng phức tạp để hiển thị. Tất nhiên không thể thiếu, bạn có thể nhấn vào tiêu đề của một cột để table sắp xếp dữ liệu theo cột đó.
+
+
+
+
+// - Vòng đời của một trang HTML:
+// - DOMContentLoaded, load, beforeunload, unload.
+
+// - DOMContentLoaded event - DOM đã sẵn sàng, có thể thao tác với DOM. vd: document.querySelector('.className').
+// - load event - Tài nguyên đã được tải, như hình ảnh, css,...
+// - beforeunload event - Người dùng sẽ rời khỏi trang: chúng ta có thể kiểm tra xem người dùng có lưu các thay đổi hay không và hỏi họ xem họ có thực sự muốn rời đi không.
+// - unload event - người dùng gần như rời đi, nhưng chúng ta vẫn có thể bắt đầu một số thao tác, chẳng hạn như gửi số liệu thống kê.
+
+// khi load trang xong html, chưa load image, css,.. nếu gặp script thì chờ script chạy xong rồi chạy tiếp
+document.addEventListener('DOMContentLoaded', function() {
+	// 
+})
+
+// load toàn bộ trang xong
+window.onload = function() {
+
+}
+
+// khi rời khỏi trang
+window.onunload = function() {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

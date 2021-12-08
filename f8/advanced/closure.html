@@ -1,0 +1,141 @@
+<script type="text/javascript">
+	
+	function makeCouter() {
+ 		let couter= 0
+ 		function increase() {
+ 			return ++ couter
+ 		}
+ 		return increase
+ 	}
+ 	const couter1= makeCouter()
+ 	console.log(couter1()) // 1
+ 	console.log(couter1()) // 2
+
+ 	const couter2= makeCouter()
+ 	console.log(couter2()) // 1
+ 	console.log(couter2()) // 2
+
+ 	// couter1 là hàm incease
+ 	let couter4= 0
+ 	function increase1() {
+ 			return ++ couter4
+ 		}
+	increase1()
+	console.log(couter4) // 1
+	increase1()
+	console.log(couter4) // 2
+
+
+
+
+</script>
+
+
+<script type="text/javascript">
+	
+	function createLogger(namespace) {
+		function logger(message) {
+			console.log(`[${namespace}] ${message}`)
+		}
+		return logger
+	}
+
+	// Register.js
+	const infoLogger= createLogger('Info')
+	infoLogger('Bắt đầu gửi mail')
+	infoLogger('Bắt đầu gửi lần 1')
+
+	const errorLogger= createLogger('Error')
+
+	// ForgotPassword.js
+	errorLogger('Email không tồn tại trong DB')
+	errorLogger('Email không error lần 1')
+
+</script>
+
+<script type="text/javascript">
+	// Ứng dụng closure tạo function cho storage để lưu các kiểu dữ liệu trong js theo kiểu json có thể lưu được
+
+
+	function createStorage(key) {
+		// ?? toán tử này nếu vế đằng trước là undefined hoặc null thì lấy vế đằng sau
+		const store= JSON.parse(localStorage.getItem(key)) ?? {}
+
+		const save= () => {
+			localStorage.setItem(key, JSON.stringify(store))
+		}
+
+		const storage= {
+			get(key) {
+				return store[key]
+			},
+			set(key, value) {
+				store[key]= value
+				save()
+			},
+			remove(key) {
+				delete store[key]
+				save()
+			}
+		}
+
+		return storage
+	}
+
+	// Profile.js
+	const profileSetting= createStorage('profile_setting')
+
+	console.log(profileSetting.get('full_name'))
+	// console.log(profileSetting.remove('full_name'))
+
+	profileSetting.set('full_name', 'first name')
+	profileSetting.set('age', 20)
+	profileSetting.set('address', 'Ha noi')
+
+	const profileSetting2= createStorage('profile_setting')
+
+	console.log(profileSetting2.get('full_name'))
+	// console.log(profileSetting2.remove('full_name'))
+
+	profileSetting2.set('full_name', 'first name')
+	profileSetting2.set('age', 20)
+	profileSetting2.set('address', 'Ha noi')
+
+
+
+
+
+
+</script>
+
+
+<script type="text/javascript">
+	// - Biến được tham chiếu (refer) trong closure sẽ không được xóa khỏi bộ nhớ khi hàm cha thực thi xong
+	function createApp() {
+		let cars= []
+
+		return {
+			add(car) {
+				cars.push(car)
+			},
+			show() {
+				console.log(cars)
+			}
+		}
+	}
+
+	// biến app là nguyên nhân làm cho các biến, hàm trong createApp không được xóa khỏi bộ nhớ
+	const app= createApp()
+	app.add('php')
+	app.add('css')
+	app.show()
+
+
+
+
+
+
+
+
+
+</script>

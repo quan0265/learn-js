@@ -1,0 +1,88 @@
+
+
+<!-- 
+
+- Arrow function:
+	- Viết tắt cho function: (param) => {  } 
+
+
+ -->
+
+<script type="text/javascript">
+	const getName= function (id) {
+		console.log(id);
+	}
+
+	// arrow function:
+	const getName1= (id) => {
+		console.log(id)
+	}
+	getName1(2);
+
+
+	const sum= (a, b) => {
+		return a + b;
+	}
+	// console.log(sum(2, 3));
+
+	// Nếu không có dấu ngoặc được hiểu là trả về return luôn
+	const sum1= (a, b) => a + b;
+
+	console.log(sum1(2, 2));
+
+
+	// Viết tắt return 1 object sử dụng dấu ngoặc đơn
+	const sum2= (a, b) => ({ a: a, b: b });
+	console.log(sum2(1, 1));
+
+	// Nếu chỉ có 1 tham số có thể bỏ dấu ngoặc tròn
+
+	const get= name => console.log(name);
+	get('name');
+
+
+	
+	// Trong method của 1 object arrow function không có context, function thông thường thì có
+	const obj1= {
+		name: 'php',
+		getName: function() {
+			return this;
+		}
+	}
+	console.log(obj1.getName());
+
+	const obj2= {
+		name: 'php',
+		getName: () => {
+			return this; 
+		}
+	}
+	console.log(obj2.getName());
+
+	// gọi tương đương với this ở bên ngoài
+	console.log(this);
+
+
+	// object constructor:
+	const User= function(name, price) {
+		this.name= name;
+		this.price= price;
+	}
+	const user1= new User('php', 20);
+	console.log(user1);
+
+	// arrow function không sử dụng được object constructor
+	const Product= (name, price) => {
+		this.name= name;
+		this.price= price;
+	}
+	const product1= new Product('product', 20);
+	console.log(product1);
+
+
+
+
+
+
+
+</script>

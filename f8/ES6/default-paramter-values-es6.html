@@ -1,0 +1,26 @@
+
+
+
+<script type="text/javascript">
+	
+	function logger(log) {
+		if(typeof log === 'undefined') {
+			log= 'Gia tri mac dinh!';
+		}
+		console.log(log)
+	}
+	logger();
+	logger(undefined);
+
+
+	function logger1(log, type= 'log') {
+		console[type](log);
+	}
+
+	logger1('Message...');
+	logger1('Message...', 'warn');
+	logger1('Message...', 'error');
+
+
+
+</script>

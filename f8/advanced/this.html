@@ -1,0 +1,148 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>this</title>
+</head>
+<body>
+
+
+	<button>Click</button>
+
+<!-- 
+
+- This
+
+
+ -->
+
+
+<script type="text/javascript">
+	
+	const iPhone7= {
+		// Thuộc tính - Property
+		name: 'iPhone 7',
+		color: 'Pink',
+		weight: 300,
+		// Phương thức - Method
+		takePhoto() {
+			console.log(this)
+		},
+		objChild: {
+			name: 'Child Object',
+			methodChild() {
+				console.log(this)
+			}
+		}
+	}
+
+	iPhone7.takePhoto() 
+	iPhone7.objChild.methodChild()
+
+</script>
+
+<script type="text/javascript">
+	
+	function Car(name, color, weight) {
+		this.name= name
+		this.color= color
+		this.weight= weight
+		this.run= function() {
+			console.log('Running...', this)
+		}
+	}
+
+	const mercedesS450= new Car('Mercedes S450', 'black', '100')
+
+	mercedesS450.run()
+
+</script>
+
+<script type="text/javascript">
+	
+	const button= document.querySelector('button')
+
+	button.onclick= function(e) {
+		console.log(e)
+		console.log(this)
+		console.dir(this)
+	}
+
+</script>
+
+<script type="text/javascript">
+	// 2. Đứng ngoài phương thưc, this tham chiếu tới đối tượng global
+	// object window
+	function myFunc() {
+		console.log(this)
+	}
+
+	myFunc()
+
+</script>
+
+<script type="text/javascript">
+	'use strict'
+	function myFunc1() {
+		console.log(this)
+	}
+
+	myFunc1() // undefined
+
+	window.myFunc1() // obj window
+
+</script>
+
+
+<script type="text/javascript">
+	// - this trong hàm tạo là đại diện cho đối tượng sẽ được tạo
+	function Car1(name, color) {
+		this.name= name,
+		this.color= color
+
+		this.run= function() {
+			console.log(this)
+		}
+	}
+	const porsche= new Car1('Porsche', 'yellow')
+	porsche.run() // object Car1
+
+
+	Car1.prototype.run2= function() {
+		// Context
+		// là 1 method nên this là object car1
+		console.log(this)
+
+		function test() {
+			// là 1 function nên this trả về object win dow
+			// nếu dùng use strict trả vè undefined
+			console.log(this)
+		}
+		test()
+
+
+		// - this trong một hàm là undefined khi ở strict mode
+		function testUseStrict() {
+			'use strict'
+			console.log(this)
+		}
+		testUseStrict()
+
+
+		// - Đối với object, 1 method là 1 function, trong function có 1 arrow function thì this trong arrow function đó không có context nên sẽ lấy this ở bên ngoài là this trong method là object đấy
+		
+
+	}
+
+	porsche.run2()
+
+
+</script>
+
+
+
+</body>
+</html>

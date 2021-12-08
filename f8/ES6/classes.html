@@ -1,0 +1,55 @@
+
+<!-- 
+
+- Classes
+
+ -->
+
+<script type="text/javascript">
+
+	function Course1(name, price) {
+		this.name= name;
+		this.price= price;
+	}
+
+	const phpCourse1= new Course1('PHP', 1000)
+	const jsCourse1= new Course1('Javascript', 2000)
+
+	console.log(phpCourse1)
+	console.log(jsCourse1)
+
+
+	// use class
+
+	class Course {
+		constructor(name, price) {
+			this.name= name;
+			this.price= price;
+		}
+
+		getName() {
+			return this.name;
+		}
+
+		getPrice() {
+			return this.price;
+		}
+
+		run() {
+			const isSuccess= false;
+		}
+	}
+
+	const phpCourse= new Course('PHP')
+	const jsCourse= new Course('Javascript')
+
+	console.log(phpCourse)
+	console.log(jsCourse)
+
+	console.log(phpCourse.getName());
+
+	
+
+
+
+</script>

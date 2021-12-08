@@ -1,0 +1,120 @@
+
+<!-- 
+
+- use strict:
+	- Báo lỗi hoặc ngăn chặn khi sử dụng những đoạn mã không an toàn hay dễ gây nhầm lẫn
+	- Cách dùng:
+		1. Thêm "use strict"; vào đầu file .js
+		2. Thêm "use strict"; vào ngay sau thẻ mở <script> </script>
+		3. Thêm "use strict"; vào đầu phạm vi hàm, chỉ dùng cho hàm đó
+	- Đặc trưng không thể khai báo biến mà không sử dụng keyword var, let
+	- Báo lỗi khi gán lại giá trị cho thuộc tính có writable ( có thể ghi ): false
+	- Báo lỗi khi hàm có tham số trùng tên
+	- Khai báo hàm trong code block thì hàm sẽ thuộc phạm vi code block
+	- Không đặt tên biến, tên hàm bằng một số keyword "nhạy cảm" của ngôn ngữ
+	- Công dụng:
+		- Tránh "quên" keyword khai báo biên
+		- Tránh trùng tên biến lẫn tới lỗi logic
+		- Sử dụng bộ nhớ hiệu quả vì tránh tạo biến global
+
+ -->
+
+
+
+
+<script type="text/javascript">
+	//- Đặc trưng không thể khai báo biến mà không sử dụng keyword var, let
+
+	// "use strict"
+	
+	fullName= "Nguyen Van A" // tao ra bien o pham vi global
+
+	function testFunc() {
+		"use strict"
+		// age= 18 // tao ra bien o pham vi global
+		var age= 18
+	}
+
+	testFunc()
+
+	console.log(fullName) 
+	// Khi dùng use strict biến age không còn là biến global nữa
+	// console.log(age) 
+
+</script>
+
+<script type="text/javascript">
+	// - Báo lỗi khi gán lại giá trị cho thuộc tính có writable ( có thể ghi ): false
+
+
+	// "use strict"
+
+	// object đã bị đóng băng lại không sửa được. nhưng khi set student.name lại không báo error
+	// student.name ở đây không có tác dụng gì, nhưng gây cho người đọc code hiểu nhầm
+	
+	// Object.freeze các thuộc tính trong object đóng băng lại không thể sửa được
+	const student = Object.freeze({
+		name: 'name a'
+	})
+
+	student.name= 'name b'
+	console.log(student.name) // name a
+
+
+	const student1= {}
+
+	Object.defineProperty(student1, 'name', {
+		value: 'name a',
+		writable: false
+	})
+	student1.name= 'name b'
+
+	// Không có use strict, student1.name không thể sửa nhưng không báo error
+	console.log(student1.name)
+
+</script>
+
+
+<script type="text/javascript">
+	// - Báo lỗi khi hàm có tham số trùng tên
+
+	// "use strict"
+	function sum(a, a) {
+		return a + a
+	}
+
+	console.log(sum(6, 9)) // 18
+
+</script>
+
+
+<script type="text/javascript">
+	
+	// - Khai báo hàm trong code block thì hàm sẽ thuộc phạm vi code block
+
+	// "use strict"
+	{
+		function sum(a, b) {
+			return a + b
+		}
+	}
+	console.log(sum(9, 6))
+
+
+
+	
+
+</script>
+
+
+<script type="text/javascript">
+	// - Không đặt tên biến, tên hàm bằng một số keyword "nhạy cảm" của ngôn ngữ
+
+	// "use strict"
+	const private= 123
+	console.log(private)
+
+
+
+
+</script>

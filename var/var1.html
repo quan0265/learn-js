@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>var</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+//golobal	
+var a= 22;
+function a1(){
+	console.log(a);
+	//22
+
+	a=33;
+}
+a1();
+console.log(a);
+//a=33;
+
+
+
+//change var golbal in function
+
+function a2(){
+	window.a=44;
+}
+a2();
+console.log(a);
+//44;
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>

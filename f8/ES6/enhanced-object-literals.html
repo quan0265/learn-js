@@ -1,0 +1,52 @@
+<!-- 
+
+- Enhanced object literals in javascript ES6: 
+	- Cung cấp viết code ngắn gọn hơn
+	- Định nghĩa key: value cho object
+	- Định nghĩa method cho object 
+	- Định nghĩa key cho object dưới dạng biến
+
+
+ -->
+
+
+
+<script type="text/javascript">
+
+	// - Định nghĩa key: value cho object
+	var name= 'Javascript';
+	var price= 1000;
+
+	var course= {
+		name, 
+		price
+	}
+
+	console.log(course)
+
+	// - Định nghĩa method cho object 
+	var course1= {
+		name,
+		price,
+		getName() {
+			return name;
+		}
+	}
+	console.log(course1.getName())
+
+
+	// - Định nghĩa key cho object dưới dạng biến
+	var filedName= 'new-name'
+	var filedPrice= 'price'
+
+	const course2= {
+		name: 'Javascript',
+		[filedName]: 'Javascript',
+		[filedPrice]: 1000
+	}
+	console.log(course2);
+	
+
+
+
+</script>

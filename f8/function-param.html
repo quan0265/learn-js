@@ -1,0 +1,21 @@
+<!-- 
+
+- Arguments
+	- Đối tượng arguments
+	- Giới thiệu vòng for
+
+ -->
+
+<script type="text/javascript">
+	function write() {
+		// console.log(arguments.length)
+		console.log(arguments)
+		var myString= '';
+		for (var param of arguments) {
+			myString+= `${param} - `;
+		}
+		console.log(myString)
+	}
+	write('a', 'b', 'c');
+
+</script>

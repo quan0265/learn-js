@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>fn.call method</title>
+</head>
+<body>
+	
+<script type="text/javascript">
+	
+	// console.dir(Function.prototype)
+
+	function random() {
+		console.log(Math.random())
+	}
+
+	random()
+
+	const teacher= {
+		firstName: 'Minh',
+		lastName: 'Thu'
+	}
+
+	const person= {
+		firstName: 'First',
+		lastName: 'Name',
+		showFullName() {
+			// console.log(this)
+			console.log(`${this.firstName} ${this.lastName}`)
+		}
+	}
+
+	person.showFullName() // First Name
+
+	// function borrowing (mượn hàm)
+	person.showFullName.call(teacher) // Minh Thu
+
+</script>
+
+<script type="text/javascript">
+	
+	//- Gọi hàm và bind this, lưu ý trong strict mode vẫn có this nếu được bind
+	
+	'use strict'
+
+	this.firstName= 'first'
+	this.lastName= 'name'
+	function showFullName() {
+		console.log(`${this.firstName} ${this.lastName}`)
+	}
+
+	// showFullName() // có use strict thì error, không có use strich thì trả về window: // first name
+
+	showFullName.call(this)
+
+</script>
+
+<script type="text/javascript">
+	
+	// - Thể hiện tính kế thừa (extends) trong OOP
+
+	function Animal(name, weight) {
+		this.name= name
+		this.weight= weight
+	}
+
+	function Chicken(name, weight, legs) {
+		Animal.call(this, name, weight)
+		this.legs= legs
+	}
+
+	const chicken1= new Chicken('name', 66, 2)
+
+	console.log(chicken1)
+
+</script>
+
+
+<script type="text/javascript">
+	// - Mượn hàm (function borrowing), thêm ví dụ với arguments
+
+	console.log(1, 2, 3, 4, 5, 6)
+
+	function logger() {
+		// console.log(arguments)
+		// console.log(...arguments)
+
+		// mượn phương thức forEach nhận mảng
+		// this là arguments
+		Array.prototype.forEach.call(arguments, item => {
+			console.log(item)
+		})
+	}
+
+	logger(1, 3, 4, 5)
+
+	function logger1() {
+		const arr= Array.prototype.slice.call(arguments)
+
+		arr.forEach(item => console.log(item))
+	}
+	logger1(1, 2, 3, 4, 5)
+
+
+	// thường không dùng function borrowing học để hiểu, dùng trong bài toán khó
+	function logger1() {
+		const arr = [...arguments]
+		console.log(arr)
+	}
+	logger1(1, 2, 3, 4, 5)
+
+
+</script>
+
+
+
+</body>
+</html>

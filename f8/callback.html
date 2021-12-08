@@ -1,0 +1,90 @@
+<!-- 
+
+- Callback:
+	- Là hàm (function) 
+	- Được truyền qua đối số khi gọi hàm khác
+
+ -->
+
+<script type="text/javascript">
+
+	function myFunction(param) {
+		// console.log(typeof param)
+		if(typeof param === 'function'){
+			param('Learn code');
+		}
+	} 
+
+	// Tuyền type gì vào thì trong function  thì nhận được type đó, giữ nguyên tính chất
+	// myFunction(123);
+
+	function myCallback(value) {
+		console.log('Value: ', value)
+	}
+
+	myFunction(myCallback);
+
+
+
+
+
+	// use call back create method map2:
+	var arr= ['php', 'html', 'css'];
+
+	// let htmls= arr.map(function(item, index) {
+	// 	return `<h2>${item}</h2>`; 
+	// })
+	// console.log(htmls.join(''));
+
+	Array.prototype.map2= function(callback) {
+		// console.log(this)
+		// console.log(callback)
+
+		var arrayLength= this.length;
+		var result= [];
+
+		for(let i= 0; i< arrayLength; i++) {
+			var item= callback(this[i], i);
+			result.push(item);
+		}
+		return result
+	}
+
+	var htmls= arr.map2(function(item, index) {
+		// console.log(item, index);
+		return `<h2>${item}</h2>`; 
+	})
+	console.log(htmls.join(''));
+
+
+
+
+	// Ex: create method forEach, reduce, find, filter
+
+	var htmls= [];
+	// arr.forEach(function(item, index) {
+	// 	htmls.push(item);
+	// })
+	// console.log(htmls.join(''));
+	
+	Array.prototype.forEach2= function(callback){
+		var arrayLength= this.length;
+		for(let i= 0; i< arrayLength; i++) {
+			callback(this[i], i);
+		}
+	}
+
+	arr.forEach2(function(item, index){
+		htmls.push(item);
+	})
+
+	console.log(htmls);
+
+
+
+
+
+
+
+
+</script>

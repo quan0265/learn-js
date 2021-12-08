@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>form</title>
+</head>
+<body>
+
+<input class="file_image" type="file" name="image" multiple="">
+
+<div class="image-list">
+	<img src="" alt="">
+	<img src="" alt="">
+	<img src="" alt="">
+	<img src="" alt="">
+	<img src="" alt="">
+	<img src="" alt="">
+	<img src="" alt="">
+	<img src="" alt="">
+</div>	
+
+<script type="text/javascript">
+
+// https://viblo.asia/p/tips-upload-file-than-thanh-ban-da-biet-het-nhung-tips-nay-chua-Az45b4RLZxY
+
+const S= document.querySelector.bind(document);
+const $$= document.querySelectorAll.bind(document);
+var image_src= [];
+var target = { a: 1, b: 2 };
+var source = { b: 4, c: 5 };
+
+
+// const dt = new DataTransfer();
+// dt.items.add(file);// repeat as many times as necessary
+// const list = dt.files;// FileList can be taken
+
+
+var target = Object.assign(target, source);
+
+var a= {0: target};
+console.log(a);
+
+// console.log(target);
+
+S('.file_image').onchange= function(){
+	// console.log(this.files);
+
+	// image_src= this.files;
+	// image_src= this.files[0].File;
+	if(image_src.length == 0){
+		// image_src= this.files;
+	}
+	else{
+		console.log(22);
+		// for(let i=0; i<this.files.length; i++){
+		// 	//check file is exist
+		// 	// image_src.push(this.files[i]);
+		// 	console.log(this.files[i]);
+		// 	// image_src= Object.assign(image_src, { 3: this.files[i]});
+		// 	// image_src= Object.assign(image_src, this.files[i]);
+		// 	image_src.push(this.files[i]);
+		// }
+
+		for(let i=0; i<this.files.length; i++){
+			// check file is exist
+			// image_src.push(this.files[i]);
+			// image_src= Object.assign(image_src, this.files[i]);
+		}
+	}
+	// image_src= image_src.concat(this.files);
+	S('.image-list').innerHTML= '';
+	for(let i=0; i<this.files.length; i++){
+		// check file is exist
+		image_src.push(this.files[i]);
+	}
+	// image_src= Object.fromEntries(image_src);
+// console.log(image_src);
+	for(let i= 0; i< image_src.length; i++){
+		let reader = new FileReader();
+		reader.readAsDataURL(image_src[i]);
+
+		reader.onload= function(e){
+			S('.image-list').innerHTML+= '<img src="'+ e.target.result +'" alt="">';
+			// console.log(e.target.result);
+		}
+	}
+	
+}
+
+
+</script>
+
+</body>
+</html>

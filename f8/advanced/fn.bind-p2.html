@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>fn.bind() P2</title>
+</head>
+<body>
+	
+<div id="heading">heading</div>
+
+<hr> <br>
+
+<input id="input" type="text" placeholder="Enter car name..." id="input">
+<button id="submit">Add</button>
+
+<ul id="root">
+	
+</ul>
+
+
+<script type="text/javascript">
+
+	// const $ = document.querySelector
+	// const $$ = document.querySelectorAll
+
+	// // this trong này sẽ trỏ về window
+	// console.log($('#heading').innerText)
+
+
+	const $ = document.querySelector.bind(document)
+	const $$ = document.querySelectorAll.bind(document)
+
+
+	const app= (() => {
+		const cars= ['BMW']
+
+		const root = $('#root')
+		const input = $('#input')
+		const submit = $('#submit')
+
+		return {
+			add(car) {
+				cars.push(car)
+			},
+			delete(index) {
+				cars.splice(index, 1)
+			},
+			render() {
+				const html= cars.map((car, index) => `
+					<li>
+						${car}
+						<span class="delete" data-index="${index}">&times</span>
+					</li>
+				`).join('')
+
+				root.innerHTML= html
+			},
+			handleDelete(e) {
+				// console.log(e.target)
+				const deleteBtn= e.target.closest('.delete')
+				// console.log(deleteBtn)
+				if(deleteBtn) {
+					// const index= deleteBtn.getAttribute('data-index')
+					const index= deleteBtn.dataset.index
+					console.log(index)
+					// console.log(this) 
+					this.delete(index)
+					this.render()
+				}
+			},
+			init() {
+				// Handle DOM events
+
+				// dang goi this o 1 function khac, this day la submit
+				// submit.onclick= function() {
+				// 	const car= input.value
+				// 	this.add(car)
+				// 	this.render()
+				// }
+
+				// - way 1: gán biến this của object cho 1 biến
+				const _this= this
+				// submit.onclick= function() {
+				// 	const car= input.value
+				// 	_this.add(car)
+				// 	_this.render()
+				// }
+
+				// - way 2: sử dụng arrow function, arrow function không có context nên this trong arrow function trỏ đến bên ngoài, ở đây là object
+
+				submit.onclick= () => {
+					const car= input.value
+					this.add(car)
+					this.render()
+
+					input.value= null
+					input.focus()
+				}
+
+				// không dùng bind thì this trong function handleDelete là root (ul)
+				// bind(this) : this này là object
+				root.onclick= this.handleDelete.bind(this)
+
+				this.render()
+			}
+		}
+	})();
+
+	app.init()
+
+
+
+
+
+
+
+
+
+
+
+	
+</script>
+
+	
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

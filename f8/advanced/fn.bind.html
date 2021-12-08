@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>fn.bind() p1</title>
+</head>
+<body>
+	
+<script type="text/javascript">
+	
+	this.firstName= 'Minh'
+	this.lastName= 'Thu'
+
+	const teacher= {
+		firstName: 'Minh',
+		lastName: 'Thảo',
+		getFullName() {
+			return `${this.firstName} ${this.lastName}`
+		},
+		getFullName2(data1, data2) {
+			console.log(data1, data2)
+			return `${this.firstName} ${this.lastName}`
+		}
+	}
+
+	// Case 1:
+	console.log(teacher.getFullName()) // Minh Thao
+
+	// Case 2:
+	const getTeacherName= teacher.getFullName
+
+	console.log(getTeacherName()) // Minh Thu
+
+
+
+	console.dir(Function)
+
+	// - Phương thức bind() sẽ trả về một hàm mới, 1 vùng nhớ mới được tạo ra không phải function ban đầu
+	const getTeacherName1= teacher.getFullName.bind(teacher)
+	console.log(getTeacherName1()) // Minh Thao
+
+	console.log(getTeacherName1 === teacher.getFullName) // false
+
+
+
+
+	// - Có thể nhận các đối tượng như hàm ban đầu
+
+	const getTeacherName2= teacher.getFullName2.bind(teacher)
+
+	// - fix cứng đối só vào luôn là test3, test4
+	// const getTeacherName2= teacher.getFullName2.bind(teacher, 'test3', 'test4')
+	
+
+	console.log(getTeacherName2('test1', 'test2'))
+
+
+</script>
+
+
+
+<button>Click</button>
+
+<script type="text/javascript">
+	
+	const teacher2= {
+		firstName: 'Minh',
+		lastName: 'Thảo',
+		getFullName() {
+			console.log(`${this.firstName} ${this.lastName}`)
+		}
+	}
+
+	const button = document.querySelector('button')
+
+	// this ở đây trỏ về button nên không có biến firstName, lastName nên undefined
+	// button.onclick= teacher2.getFullName
+
+	button.onclick= teacher2.getFullName.bind(teacher2)
+
+
+
+</script>
+
+
+
+
+</body>
+</html>	

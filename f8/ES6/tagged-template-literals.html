@@ -1,0 +1,44 @@
+<!-- 
+
+- Teaggd-template-literals
+
+ -->
+
+<script type="text/javascript">
+	
+	function hightlight(...rest) {
+		console.log(rest);
+	}
+	var brand= 'F8'
+	var course= 'Javascript';
+
+	hightlight`Học lập trình ${course} tại ${brand}`;
+	// console log ra 1 array: [ [...], 'F8', 'Javascript' ]
+	// tham số thư nhất là 1 array chứa những chuỗi không có nội suy: [ 'Học lập trình', 'tại', '' ] 
+
+
+
+
+	function hightlight1([first, ...strings], ...values) {
+		// console.log('first', first);
+		// console.log('strings', strings);
+		// console.log('values', values);
+
+		return values.reduce(
+			(acc, curr) => [...acc, `<span>${curr}</span>`, strings.shift()], 
+			[first]
+		).join('')
+
+	}
+	// Học lập trình <span>Javascript</span> tại <span>F8</span>
+
+	var brand= 'F8'
+	var course= 'Javascript';
+
+
+	const html= hightlight1`Học lập trình ${course} tại ${brand}!`;
+	console.log(html);
+	// console log ra 1 array: [ [...], 'F8', 'Javascript' ]
+	// tham số thư nhất là 1 array chứa những chuỗi không có nội suy: [ 'Học lập trình', 'tại', '' ] 
+
+</script>

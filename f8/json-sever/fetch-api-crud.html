@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>fetch api crud</title>
+</head>
+<body>
+
+<!-- 
+	
+	Ex: Thêm nút sửa ở mỗi item, click sửa ở item hiển thị text trong ô input và nút create ẩn đi hiển thị nút update
+
+ -->
+
+
+<div>
+	<h1>List courses</h1>
+	<ul id="courses">
+
+	</ul>
+</div>
+
+<div>
+	<div>
+		<label>Name</label>
+		<input type="text" name="name">
+	</div>
+	<div>
+		<label>Description</label>
+		<input type="text" name="description">
+	</div>
+	<div>
+		<button id="create" >Create</button>
+		<button id="update" style="display: none;" >Update</button>
+	</div>
+</div>
+
+	
+
+	
+<script type="text/javascript">
+	
+	var courseAPI = 'http://localhost:3000/courses';
+
+	function start() {
+		// getCourses(function(courses) {
+		// 	// console.log(courses);
+		// 	renderCourses(courses);
+		// })
+
+		getCourses(renderCourses);
+		handleCreateCourse();
+
+	}
+
+	start();
+
+
+	function getCourses(callback) {
+		fetch(courseAPI)
+			.then(function(response) {
+				return response.json();
+			})
+			.then(callback);
+	}
+
+	function renderCourses(courses) {
+		var listCoursesBlock= document.querySelector('#courses')
+		var htmls= courses.map(function(course) {
+			return `
+				<li data-id="${course.id}">
+					<h4>${course.name}</h4>
+					<p>${course.description}</p>
+					<button onclick="showUpdateCourse(${course.id})" >Edit</button>
+					<button onclick="handleDeleteCourse(${course.id})" >Delete</button>
+				</li> `
+		})
+		listCoursesBlock.innerHTML= htmls.join('');
+	}
+
+	function createCourse(data, callback) {
+		var options= {
+			method: 'POST',
+			headers: {
+		      'Content-Type': 'application/json'
+		      // 'Content-Type': 'application/x-www-form-urlencoded',
+		    },
+			body: JSON.stringify(data)
+		}
+
+		fetch(courseAPI, options)
+			.then(function(response) {
+				response.json();
+			})
+			.then(callback);
+
+	}
+
+	function handleCreateCourse() {
+		var createBtn= document.querySelector('#create');
+
+		createBtn.onclick= function() {
+			var name= document.querySelector('input[name=name]').value;
+			var description= document.querySelector('input[name=description]').value;
+			var formData= {
+				name: name,
+				description: description
+			}
+
+			createCourse(formData, function() {
+				getCourses(renderCourses);
+			});
+
+		}
+	}
+
+	function handleDeleteCourse(id) {
+		var options= {
+			method: 'DELETE',
+			headers: {
+		      'Content-Type': 'application/json'
+		      // 'Content-Type': 'application/x-www-form-urlencoded',
+		    }
+		}
+
+		fetch(courseAPI + '/' + id, options)
+			.then(function(response) {
+				response.json();
+			})
+			.then(function() {
+				// getCourses(renderCourses);
+
+				var courseItem= document.querySelector(`#courses li[data-id="${id}"]`)
+				if(courseItem) {
+					courseItem.remove();
+				}
+
+			})
+	}
+
+
+	// Ex
+	function showUpdateCourse(id) {
+		document.querySelector('#create').style.display= 'none';
+		document.querySelector('#update').style.display= 'block';
+
+		fetch(courseAPI + '/' + id)
+			.then(function(response) {
+				return response.json();
+			})
+			.then(function(course) {
+				// console.log(course)
+				document.querySelector('input[name=name]').value= course.name
+				document.querySelector('input[name=description]').value= course.description
+
+				document.querySelector('#update').onclick= function() {
+					handleUpdateCourse(id);
+				}
+
+			})
+
+		// document.querySelector('input[name=name]').value= 
+
+	}
+
+	function handleUpdateCourse(id) {
+		// console.log(id);
+		var name= document.querySelector('input[name=name]').value;
+		var description= document.querySelector('input[name=description]').value;
+		var data= {
+			name: name,
+			description: description
+		}
+
+		var options= {
+			method: 'PUT',
+			headers: {
+		      'Content-Type': 'application/json'
+		      // 'Content-Type': 'application/x-www-form-urlencoded',
+		    },
+			body: JSON.stringify(data)
+		}
+
+		fetch(courseAPI + '/' + id, options)
+			.then(function(response) {
+				return response.json();
+			})
+			.then(function(course) {
+				// console.log(course);
+				document.querySelector('#create').style.display= 'block';
+				document.querySelector('#update').style.display= 'none';	
+
+				document.querySelector('input[name=name]').value= ''
+				document.querySelector('input[name=description]').value= ''
+
+				// render course item after update
+				var courseItem= document.querySelector(`#courses li[data-id="${course.id}"]`)
+				courseItem.querySelector('h4').innerText= course.name;
+				courseItem.querySelector('p').innerText= course.description;
+
+			});
+
+	}
+
+
+
+
+
+	
+
+
+</script>
+
+
+
+
+</body>
+</html>

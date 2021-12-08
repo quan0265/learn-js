@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>function jquery</title>
+</head>
+<body>
+
+
+
+
+
+<script type="text/javascript">
+
+// serialize(): Lấy giá trị các thành phần form, mã hóa các giá trị này thành giá trị chuỗi.
+// Giá trị sẽ được hiển thị theo các cặp cách nhau bởi ký tự "&": name1=value1&name2=value2&...	
+$('form').serialize();
+// result: radio=Male&checkbox01=html&checkbox03=jquery&city=HaNoi
+
+
+// highlight code use libraries rainbow after create button coppy code
+$(document).ready(function() {
+	// create element button click coppy
+    var b = $("pre code"),
+        a = "<button class='copycode'>Copy</button>";
+    b.before(a)
+});
+(function(a) {
+    a.fn.selectText = function() {
+        var e = document;
+        var c = this[0];
+        console.log(this, c);
+        if (e.body.createTextRange) {
+            var b = document.body.createTextRange();
+            b.moveToElementText(c);
+            b.select()
+        } else {
+            if (window.getSelection) {
+                var d = window.getSelection();
+                var b = document.createRange();
+                b.selectNodeContents(c);
+                d.removeAllRanges();
+                d.addRange(b);
+                document.execCommand("Copy")
+            }
+        }
+    };
+    a.fn.removeRange = function() {
+        if (window.getSelection) {
+            if (window.getSelection().empty) {
+                window.getSelection().empty()
+            } else {
+                if (window.getSelection().removeAllRanges) {
+                    window.getSelection().removeAllRanges()
+                }
+            }
+        } else {
+            if (document.selection) {
+                document.selection.empty()
+            }
+        }
+    }
+})(jQuery);
+$(document).ready(function() {
+    $(".copycode").click(function() {
+        var b = $(this).parent().find("code"),
+            a = $(this),
+            g = "Copied",
+            f = a.text();
+        b.selectText();
+        a.html(g);
+        setTimeout(function() {
+            a.html(f);
+            b.removeRange()
+        }, 1000)
+    })
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

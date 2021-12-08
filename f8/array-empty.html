@@ -1,0 +1,35 @@
+<!-- 
+
+- Array empty
+
+ -->
+
+<script type="text/javascript">
+
+//forEach, find, filter, some, every, reduce
+
+	var courses= ['php', 'html', 'css'];
+
+	courses.length= 10;
+
+	// var courses= new Array(10);
+
+	// courses.push('php');
+
+	console.log(courses);
+
+	// trong trường hợp này dùng for sẽ lặp qua cả element empty ( 10 lần lặp )
+	for (let i= 0; i< courses.length; i++) {
+		console.log(courses[i]);
+	}
+
+	// nên dùng for in lặp chỉ lặp qua các element có giá trị
+	for (let index in courses) {
+		console.log(courses[index]);
+	}
+
+
+
+
+
+</script>

@@ -1,0 +1,68 @@
+<!-- 
+- Array iteration:
+	- length
+	- forEach
+	- every
+	- some
+	- find
+	- filter
+	- map
+	- reduce
+
+ -->
+
+
+<script type="text/javascript">
+	let array= [
+		{id: 1, name: 'php', coin: 0},
+		{id: 2, name: 'html', coin: 200},
+		{id: 3, name: 'css', coin: 500},
+		{id: 3, name: 'python', coin: 0}
+	]
+
+	// - length
+	// console.log(array[0])
+	console.log(array.length)
+
+	// - forEach
+	array.forEach(function(item, index) {
+		// console.log(index, item);
+	})
+	// - every: The every() method check if all array values pass a test
+	// every check value pass điều kiện nếu false stop trả về false ngược lại tiếp tục trả về true
+	// check all value thỏa mãn điều kiện đúng 
+	var isFree= array.every(function(item, index){
+		return item.coin === 0;
+	})
+	console.log(isFree);
+
+	// - some: check one value thỏa mãn điều kiện trả về true
+	var isFree1= array.some(function(item, index){
+		return item.coin === 0;
+	})
+	console.log(isFree1)
+
+	// - find: returns the value of the first array element that passes a test function else return undefined
+	var course= array.find(function(item, index){
+		return item === 'ruby1';
+	})
+	console.log(course)// undefined
+
+	var course= array.find(function(item, index){
+		return item.name === 'php';
+	})
+	console.log(course) // array[0]
+
+	// - filter: return a new array with array elements that passes a test.
+	var arrayFilter= array.filter(function(item, index){
+		return item.coin === 0
+	})
+	console.log(arrayFilter)
+
+	// - map: hay dùng trong render
+	// - reduce
+
+
+
+
+</script>

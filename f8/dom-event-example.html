@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DOM event example</title>
+	<style type="text/css">	
+		.line{
+			border-bottom: 1px solid black;
+			margin-top: 50px;
+			margin-bottom: 50px;
+		}
+
+	</style>
+</head>
+<body>
+
+<!-- 
+
+- DOM event example
+
+ -->
+
+	<input type="text">	
+	<input type="checkbox">
+
+	<select>
+		<option value="1">php</option>
+		<option value="2">html</option>
+		<option value="3">css</option>
+	</select>
+
+	<script type="text/javascript">
+		
+		var textValue;
+		var textElement= document.querySelector('input[type=text]');
+
+		textElement.oninput= function(e) {
+			// console.log(e)
+			textValue= e.target.value;
+			console.log(textValue);
+		}
+
+
+		var checkboxValue;
+		var checkboxElement= document.querySelector('input[type=checkbox]');
+
+		checkboxElement.onchange= function(e) {
+			// console.log(e);
+			console.log(e.target.checked);
+		}
+
+		var selectValue;
+		var selectElement= document.querySelector('select');
+
+		selectElement.onchange= function(e) {
+			// console.log(e);
+			console.log(e.target.value);
+		}
+
+	</script>
+
+
+	<div class="line"></div>
+
+	<input class="input2" type="text">
+
+	<script type="text/javascript">
+		var input2Value;
+		var input2Element= document.querySelector('.input2');
+
+		// Khi focus ở input text, nhấn phím Esc
+		// input2Element.onkeyup= function(e) {
+		// 	// console.log(e.which);
+
+		// 	switch(e.which) {
+		// 		case 27:
+		// 			console.log('Exit');
+		// 			break;
+		// 	}
+
+		// }
+
+		// Khi nhấn phím: Esc, Enter
+		document.onkeydown= function(e) {
+			switch(e.which) {
+				case 27: 
+					console.log('Exit');
+					break;
+				case 13:
+					console.log('Send chat');
+					break;
+			}
+		}
+
+
+
+
+	</script>
+
+
+
+
+
+</body>
+</html>

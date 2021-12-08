@@ -1,0 +1,67 @@
+<!-- 
+- forEach
+- Object prototype
+	
+- biến courses là 1 array nó được khởi tạo Array constructor, nên nó kế thừa các phương thực định nghĩa sẵn nằm ở trong Array.prototype
+
+- Xem các phương thức array: Array.prototype
+
+ -->
+
+<script type="text/javascript">
+	
+	var courses= ['php', 'html', 'css'];
+
+	// courses.length= 1000;
+
+	// console.log(courses);
+
+	// courses.forEach(function(course, index,  array) {
+	// 	console.log(course, index, array);
+	// })
+
+	Array.prototype.testMethod1= 1;
+	Array.prototype.testMethod2= function() {
+
+	}
+
+	Array.prototype.forEach2= function(callback) {
+
+		// console.log(this);
+
+		// for in duyệt qua cả element nằm trong prototype nên .forEach2 cũng hiển thị là 1 method
+		for (index in this) {
+			// console.log('index: ', index)
+			// nếu value nằm trong array, value gần nhất return true, trong prototype return fasle
+			// console.log(index, this.hasOwnProperty(index));
+
+			if(this.hasOwnProperty(index)) {
+				callback(this[index], index, this);
+			}
+
+		}
+	}
+
+	courses.forEach2(function(course, index, array) {
+		console.log(course, index, array);
+	})
+
+
+	// Xem các phương thức array:
+	// console.log(Array.prototype);
+
+
+
+	var arr= new Array(100);
+	arr.push('php', 'html');
+
+	console.log(arr)
+
+	arr.forEach2(function(course, index) {
+		console.log(course, index);
+	})
+
+
+
+</script>
+

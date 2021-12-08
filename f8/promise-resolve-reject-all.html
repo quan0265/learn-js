@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>promise resolve reject all</title>
+</head>
+<body>
+
+
+
+
+	<script type="text/javascript">
+
+		function sleep(ms) {
+			return new Promise(function(resolve) {
+				setTimeout(resolve, ms);
+			})
+		}
+
+		// Có nhiều then, trong quá trình chạy có 1 promise bị reject thì không chạy xuống các chuỗi còn lại chạy xuống catch luôn
+
+		sleep(1000) 
+			.then(function() {
+				// console.log(1)
+				return sleep(1000);
+			}) 
+			.then(function() {
+				// console.log(2)
+				return new Promise(function (resolve, reject) {
+					reject('Error');
+				})
+			}) 
+			.then(function() {
+				console.log(3)
+				return sleep(1000);
+			}) 
+			.catch(function(error) {
+				// console.log(error);
+			})
+
+	</script>
+
+	<script type="text/javascript">
+		
+		// Có 1 số thư viện output luôn luôn là 1 promise
+
+		//Promise.resolve
+		var promise1= Promise.resolve('Success');
+
+		promise1
+			.then(function(result) {
+				console.log('result:', result);
+			})
+			.catch(function(error) {
+				console.log('error: ', error)
+			})
+
+		//Promise.reject
+		var promise2= Promise.reject('Error');
+
+		promise2
+			.then(function(result) {
+				console.log('result:', result);
+			})
+			.catch(function(error) {
+				console.log('error: ', error)
+			})
+
+	</script>
+
+
+	<script type="text/javascript">
+
+		//Promise.all: 
+		// Nếu các promise không phụ thuộc nhau thì nên chạy song song
+		// Dùng Promise.all để chạy song song cac promise
+		// Khi tất cả promise trong tham số chạy xong thì mới chạy then trong Promise.all
+
+		var promise3= new Promise(
+			function(resolve) {
+				setTimeout(function() {
+					console.log(3);
+					resolve([1]);
+				}, 2000)
+			}
+		)
+
+		var promise4= new Promise(
+			function(resolve) {
+				setTimeout(function() {
+					console.log(4);
+					resolve([2,3]);
+				}, 2000)
+			}
+		)
+
+		//- Khi có 1 promise bị reject thì chạy catch trong Promise.all
+		// var promise4= Promise.reject('Error');
+
+		Promise.all([promise3, promise4])
+			.then(function(result) {
+				console.log(result);
+				console.log(result[0].concat(result[1]));
+			})
+			.catch(function(error) {
+				console.log(error);
+			})
+
+
+
+	</script>
+
+
+</body>
+</html>

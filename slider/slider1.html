@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider1</title>
+</head>
+
+<body>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <a href="#" class="zoom-cur"> <img class="slides_show lazyloaded" alt="banner-1" src="https://image.freepik.com/free-psd/woman-shopping-summer-sale-banner_23-2148515792.jpg" /> </a>
+        </div>
+        <div class="mySlides fade">
+            <a href="#" class="zoom-cur"> <img class="slides_show lazyloaded" alt="banner-2" src="https://img.freepik.com/free-psd/horizontal-banner-online-fashion-sale_23-2148585404.jpg?size=626&ext=jpg" /> </a>
+        </div>
+        <div class="mySlides fade">
+            <a href="#" class="zoom-cur"> <img class="slides_show lazyloaded" alt="banner-3" src="https://image.freepik.com/free-psd/banner-template-with-online-shopping-design_23-2148550895.jpg" /> </a>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">❮</a> <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
+    setInterval(plusSlides, 8000, 1);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>fetch</title>
+</head>
+<body>
+	
+<!-- 
+
+- Fetch
+	- API -> application programing interface
+	- Cổng giao tiếp giữa các phần mềm
+	- Backend -> API -> Fetch -> JSON/XML -> JSON.parse -> Javascript types -> Rend dẻ ra giao diện với HTML
+
+
+
+ -->
+
+ 	<ul class="posts">
+ 		
+ 	</ul>
+
+
+ 	<script type="text/javascript">
+			
+		// var usersApi = 'https://jsonplaceholder.typicode.com/users',
+	    // commentsApi = 'https://jsonplaceholder.typicode.com/comments';
+
+	    var postApi= 'https://jsonplaceholder.typicode.com/posts';
+
+	    fetch(postApi)
+	    	.then(function(response) {	    		
+	    		// xem thêm các thuộc tính, method: return response;
+	    		// return response.text();
+
+	    		return response.json();
+	    		// JSON.parse: JSON -> Javascript types
+	    	})
+	    	.then(function(posts) {
+	    		console.log(posts);
+
+	    		var htmls= posts.map(function(post) {
+	    			return `<li>
+						 		<h2>${post.title}</h2>
+						 		<p>${post.body}</p>
+						 	</li>`;
+	    		})
+
+	    		var html= htmls.join('');
+	    		document.querySelector('.posts').innerHTML= html;
+
+	    	})
+	    	.catch(function(error) {
+	    		console.log('Error')
+	    	})
+
+
+
+
+ 	</script>
+
+ 	
+
+
+
+
+</body>
+</html>

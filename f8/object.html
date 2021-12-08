@@ -1,0 +1,87 @@
+
+
+<script type="text/javascript">
+
+	var obj= {
+		first_name: 'first',
+		last_name: 'name',
+		avatar: 'avatar'
+	}
+	console.log(obj)
+
+
+	// Object constructor
+	function User(first_name, last_name, avatar) {
+		this.first_name= first_name
+		this.last_name= last_name
+		this.avatar= avatar
+
+		this.getName= function() {
+			return `${this.first_name} ${this.last_name}`
+		}
+	}
+
+	var author= new User('first', 'name', 'avatar');
+
+	console.log(author)
+	console.log(author.constructor)
+	console.log(author.constructor === User) //true
+
+
+
+	var user= new User('first', 'user', 'avatar')
+
+	author.title= 'title';
+	user.comment= 'comment';
+	// console.log(author)
+	// console.log(user)
+
+	console.log(author.getName())
+	console.log(user.getName())
+
+
+
+
+	// có thể dùng expression function create function constructor
+	var csUser= function(name){
+		this.name= name,
+
+		this.getName= function() {
+			return this.name;
+		}
+	}
+
+	var csUser1= new csUser('a');
+	console.log(csUser1);
+	console.log(csUser1.getName());
+
+
+
+	// Object prototype(nguyễn mẫu)
+
+
+	// Thêm 1 thuộc tính vào hàm tạo
+	csUser.prototype.className= 'F8';
+	csUser.prototype.getClassName= function() {
+		return this.name
+	}
+
+	// Thuộc tính, phương thức đươc thêm vào nằm trong prototype và cùng cấp với constructor
+	// console.log(csUser1.className); //F8
+
+	console.log(csUser1);
+
+
+	// object Date
+	var date= new Date();
+	console.log(date);
+	console.log(date.getMonth());
+	console.log(date.getFullYear());
+	console.log(date.getDay());
+
+
+
+
+
+
+</script>

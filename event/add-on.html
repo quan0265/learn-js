@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>so sanh addEventListener and on</title>
+</head>
+<body>
+
+<button class="1">button1</button>
+<button class="button2">button2</button>
+
+<script type="text/javascript">
+	document.querySelector('button1').onclick= function(){
+		console(11);
+	}
+
+	document.querySelector('button1').onclick= function(){
+		console(22);
+	}
+	//ket qua 22;
+
+	document.querySelector('button2')addEventListener('click', function(){
+		console.log(11);
+	});
+	document.querySelector('button2')addEventListener('click', function(){
+		console.log(11);
+	});
+	//ket qua 1122
+
+	// dung on thi ghi de len, add la them 1 su kien nua thuc hien tat ca
+
+
+</script>
+
+
+
+
+</body>
+</html>

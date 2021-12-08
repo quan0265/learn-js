@@ -1,0 +1,95 @@
+<!-- 
+
+- destructuring, rest parameters
+	- destructuring: var [a, , c]= ['php', 'html', 'css']
+	- rest parameters (tham số phần còn lại) trả về array hoặc object chứa các phần tử còn lại
+		- var [a, ...var]= ['php', 'html', 'css'], biến var là 1 array: ['html', 'css']
+		- var {name, ...newObject}= {name: 'php', age: 12}
+	- Có 2 trường hợp là toán tử rest:
+		- Khi là toán tử rest là kết hợp với destructuring
+		- Sử dụng trong việc định nghĩa thàm số: function logger(...params) {  }
+
+
+ -->
+
+
+<script type="text/javascript">
+	
+	// - destructuring: [a, , c]= ['php', 'html', 'css']
+	var array= ['PHP', 'HTML', 'CSS']
+
+	var [a, b, c]= array 
+	console.log(a, b, c)
+
+	var [e, , f]= array
+	console.log(e, f) // php css
+
+	// - rest parameters (tham số phần còn lại)
+	var [a, ...rest]= array;
+	console.log(rest) // [HTML, CSS]
+
+
+	function login({ name, price, ...rest}) {
+		console.log(name);
+		console.log(price);
+		console.log(rest);
+	}
+	login({
+		name: 'php',
+		price: 1000,
+		description: 'description'
+	})
+
+
+
+
+	//Object
+	var course= {
+		name: 'php',
+		price: 1000,
+		image: 'image'
+	}
+
+	// Tên biến phải trùng với key của đối tượng
+	var {name, price, price2}= course;
+	console.log(price2); //price2 là undefined
+	console.log(name, price)
+
+
+
+	// Rest param
+
+	// xóa 1 key ở trong object không cần dùng delete
+	var {name, ...newObject}= course
+	console.log(newObject);
+
+
+	// Đổi tên biến khác với key của đổi  tượng
+	var course1= {
+		name: 'php',
+		price: 100,
+		children: {
+			name: 'ReactJS'
+		}
+	}
+	var{name: parentName, children: {name: childrenName} }= course1
+	console.log(parentName);
+
+	// Khi key của object không có set value default
+	var {name, age= '12'}= course1
+	console.log(age);
+
+
+
+
+
+	// - Sử dụng trong việc định nghĩa thàm số: function logger(...params) {  }
+	function logger(...params) {
+		// console.log(arguments);
+		console.log(params);
+	}
+	logger(1, 2, 3, 4, 5);
+
+
+
+</script>

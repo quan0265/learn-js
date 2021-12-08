@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>dom node propreties</title>
+</head>
+<body>
+	<div class="box" contenteditable="">
+		<h1 title="Heading">Heading</h1>
+	</div>
+
+	<script type="text/javascript">
+		
+		var boxElement= document.querySelector('.box');
+
+		// boxElement là 1 element object, tuy nhiên trên devtool của chrome tự hiển thị html node element
+		console.log(boxElement);
+
+		console.log([boxElement]);
+		
+		console.log({boxElement});
+
+
+	</script>
+
+
+</body>
+</html>

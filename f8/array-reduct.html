@@ -1,0 +1,120 @@
+<!-- 
+
+	- reduce:
+		- initial value: khi không có initial value thì sẽ lấy element first và giảm bớt 1 vòng lặp
+
+	- Ex1: 
+		Input: [1, 2, function() {}, NaN] - Output: 3
+		Input: [1, 2, 'hi', 0, 6] - Output: 9
+		Input: [{}, 1, [], 2, 'hi', 0, 6] - Output: 9
+
+
+ -->
+
+
+<script type="text/javascript">
+
+	// let result= number.reduce(callback, initial)
+
+	let array= [
+		{id: 1, name: 'php', coin: 0},
+		{id: 2, name: 'html', coin: 200},
+		{id: 3, name: 'css', coin: 500},
+		{id: 3, name: 'python', coin: 0}
+	]
+
+	// Biến lưu trữ
+	// Thực hiện lưu trữ
+
+ 	var i= 0;
+
+ 	function coinHandler(previousValue, currentValue, currentIndex, originArray) {
+ 		i++;
+ 		// currentValue= previousValue + 1;
+ 		console.table({
+ 			'Lượt chạy': i,
+ 			'previousValue': previousValue,
+ 			'currentIndex': currentIndex
+ 		})
+ 		console.log(currentValue);
+
+ 		return previousValue + currentValue.coin
+ 	}
+
+ 	var totalCoin= array.reduce(coinHandler, 10)
+
+ 	console.log(totalCoin)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 	//Ex1
+ 	let a= [1, 2, function() {}, NaN, 'hi', {}, 1, []];
+
+ 	function sumNumbers(inputs){
+ 		return inputs.reduce(function(previous, currentValue){
+		    if(typeof currentValue == 'number' && !isNaN(currentValue)){
+		        return previous + currentValue
+		    }
+		    else{
+			    return previous
+		    }
+		}, 0)
+ 	}
+ 	// console.log(sumNumbers(a))
+
+
+ 	// Ex2: Flat - "làm phẳng" from Depth array - "Mảng sâu"
+ 	depthArray= [1, 2, [3, 4], 5, 6, [7, 8, 9]];
+
+ 	var flatArray= depthArray.reduce(function(flatOutput, depthItem, index){
+ 		return flatOutput.concat(depthItem)
+ 	}, [])
+ 	console.log(flatArray)
+
+
+
+ 	// Ex3: Lấy ra các khóa học đưa vao 1 mảng mới
+ 	var topics= [
+ 		{
+ 			topic: "Front-end",
+ 			course: [
+ 				{ id: 1, title: "HTML, CSS" },
+ 				{ id: 2, title: "Javascript" }
+ 			]
+ 		},
+ 		{
+ 			topic: "Back-end",
+ 			course: [
+ 				{ id: 1, title: "PHP" },
+ 				{ id: 2, title: "NodeJS" }
+ 			]
+ 		}
+ 	]
+
+ 	var newCourses= topics.reduce(function (courses, topic, index){
+ 		return courses.concat(topic.course)
+ 	}, [])
+
+ 	console.log(newCourses);
+
+ 	var htmls= newCourses.map(function(course, index) {
+ 		return `<div><h2>${course.title}</h2><p>ID: ${course.id}</div>`;
+ 	})
+
+ 	console.log(htmls)
+
+
+
+</script>

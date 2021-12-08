@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>form data</title>
+</head>
+<body>
+
+<form action="" id="form1">
+	<input type="file" name="image">
+	<input type="text" name>
+	<button type="submit" name="submit">submit</button>
+</form>
+
+<script type="text/javascript">
+
+// use jquery
+// let get= $('form').serialize();
+// get= name=abc&age=13
+	
+let data= new FormData(document.querySelector('#form1'));
+
+document.querySelector('#form1').onsubmit= function(e){
+	event.preventDefault();
+
+	
+	$.ajax({
+		url: 'ajax/test.php',
+		contentType : false,
+        processData : false,
+        cache : false,
+	    type: post,
+	    data: data,
+	    success: function($rs){
+
+	    }
+
+	})
+}
+
+
+// jQuery ajax mặc định sẽ truyền dữ liệu lên với ContentType: application/x-www-form-urlencoded, đối với việc truyền dữ liệu có upload cả file lên, chúng ta phải ngăn không cho ajax truyền lên với ContentType mặc định.
+
+// Việc sử dụng contentType: false, khi truyền dữ liệu lên, contentType sẽ được chuyển thành: multipart/form-data.
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
