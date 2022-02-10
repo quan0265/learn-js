@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax use fetch javascript</title>
+</head>
+
+<body>
+    <button id="btn-get-one">click get one</button>
+    <button id="btn-get-all">click get all</button>
+    <button id="btn-post-create">click post create</button>
+    <button id="btn-pust-update">click pust update</button>
+    <button id="btn-delete-delete">click delete</button>
+    <!-- 
+
+	- link: https://jsonplaceholder.typicode.com/guide/
+
+
+ -->
+    <script>
+
+    	// get one
+	    document.querySelector('#btn-get-one').onclick = function() {
+	        fetch('https://jsonplaceholder.typicode.com/posts/1')
+	            .then((response) => response.json())
+	            .then((json) => console.log(json))
+	            .catch(function(error) {
+	            	console.log(error);
+	            })
+	    }
+
+	    // get all
+	    document.querySelector('#btn-get-all').onclick = function() {
+	        fetch('https://jsonplaceholder.typicode.com/posts')
+	            .then((response) => response.json())
+	            .then((json) => console.log(json));
+	    }
+
+	    // create one, truyền tham số post dưới dạng json.stringify thì file php api bên sever phải chinh su
+	    // javascript fetch post json php, file php:
+
+	 //    $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+
+		// if ($contentType === "application/json") {
+		//   //Receive the RAW post data.
+		//   $content = trim(file_get_contents("php://input"));
+
+		//   $decoded = json_decode($content, true);
+
+		//   //If json_decode failed, the JSON is invalid.
+		//   if(! is_array($decoded)) {
+
+		//   } else {
+		//     // Send error back to user.
+		//   }
+		// }
+
+
+	    document.querySelector('#btn-post-create').onclick = function() {
+	        fetch('https://jsonplaceholder.typicode.com/posts', {
+	                method: 'POST',
+	                body: JSON.stringify({
+	                    title: 'foo',
+	                    body: 'bar',
+	                    userId: 1,
+	                }),
+	                headers: {
+	                    'Content-type': 'application/json; charset=UTF-8',
+	                },
+	            })
+	            .then((response) => response.json())
+	            .then((json) => console.log(json));
+	    }
+
+	    // dùng fetch gửi tham số dưới dạng form, khi nhận về response chọn methos text() rồi json sau
+	    function postCreate() {
+	    	fetch('http://localhost/crawl/newbedev/api/create_link.php', {
+                method: 'POST',
+                body: new URLSearchParams(params),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}
+            })
+            .then((response) => response.text())
+            .then((res) => console.log(res))
+	    }
+
+
+	    // hoặc gửi thám số dưới dạng formdata
+	    function postCreate1() {
+	    	var formData = new FormData();
+	    	formData.append('title', 'abc');
+	        fetch('https://jsonplaceholder.typicode.com/posts', {
+	                method: 'POST',
+	                body: formData
+	            })
+	            .then((response) => response.text())
+	            .then((json) => console.log(json));
+	    }
+
+	    // update one
+	    document.querySelector('#btn-pust-update').onclick = function() {
+	        fetch('https://jsonplaceholder.typicode.com/posts/1', {
+	                method: 'PUT',
+	                body: JSON.stringify({
+	                    id: 1,
+	                    title: 'foo',
+	                    body: 'bar',
+	                    userId: 1,
+	                }),
+	                headers: {
+	                    'Content-type': 'application/json; charset=UTF-8',
+	                },
+	            })
+	            .then((response) => response.json())
+	            .then((json) => console.log(json));
+	    }
+
+	    // delete one
+	    document.querySelector('#btn-delete-delete').onclick = function() {
+	        fetch('https://jsonplaceholder.typicode.com/posts/1', {
+	            method: 'DELETE',
+	        });
+	    }
+    </script>
+</body>
+
+</html>

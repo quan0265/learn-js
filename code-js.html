@@ -1,5 +1,10 @@
 
 <h1>hello</h1>
+
+<div class="modal" style="height: 100px">
+	<div class="modal-container">modal container</div>
+</div>
+
 <script type="text/javascript">
 	
 const h1= document.querySelector('h1')
@@ -17,7 +22,9 @@ console.dir(h1)
 console.table(h1): 
 // cho phép hiển thị dữ liệu dưới dạng bảng. Không chỉ dùng cho các dữ liệu dạng bảng, console.table() còn có thể đọc các thuộc tính của đối tượng phức tạp để hiển thị. Tất nhiên không thể thiếu, bạn có thể nhấn vào tiêu đề của một cột để table sắp xếp dữ liệu theo cột đó.
 
-
+// select element:
+// - chọn thể img-block bên ngoài img gần nhất
+document.querySelector('img').closest('.img-block');
 
 
 // - Vòng đời của một trang HTML:
@@ -28,14 +35,22 @@ console.table(h1):
 // - beforeunload event - Người dùng sẽ rời khỏi trang: chúng ta có thể kiểm tra xem người dùng có lưu các thay đổi hay không và hỏi họ xem họ có thực sự muốn rời đi không.
 // - unload event - người dùng gần như rời đi, nhưng chúng ta vẫn có thể bắt đầu một số thao tác, chẳng hạn như gửi số liệu thống kê.
 
-// khi load trang xong html, chưa load image, css,.. nếu gặp script thì chờ script chạy xong rồi chạy tiếp
+
+
+
+var beginTime = performance.now();
+console.log('Bắt đầu', beginTime);
+
+// khi load trang xong html, chưa load image, css,.. nếu gặp script, style thì chờ script, style chạy xong rồi chạy tiếp
 document.addEventListener('DOMContentLoaded', function() {
-	// 
+	var endTime = performance.now();
+    console.log('DOMContentLoaded endTime', endTime);
 })
 
-// load toàn bộ trang xong
+// load toàn bộ trang xong bao gồm hình ảnh video, js
 window.onload = function() {
-
+	var endTime = performance.now();
+    console.log('window.onload endTime', endTime);
 }
 
 // khi rời khỏi trang
@@ -43,11 +58,33 @@ window.onunload = function() {
 
 }
 
+// Ngăn chặn hành vi nổi bot mặc đinh: khi click vào đúng vào element có class modal (click vào các element con trong modal không tính)
+const modal = document.querySelector('modal')
+modal.addEventListener('click', function(e) {
+	e.stopPropagation()
+})
 
+// Chuyển html encode sang html decode:
+var editor_value = '&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;body&gt;\n\n&lt;h1&gt;My first PHP page&lt;/h1&gt;\n\n&lt;?php\necho &quot;Hello World!&quot;;\n?&gt; \n\n&lt;/body&gt;\n&lt;/html&gt;';
+var block = document.createElement('div');
+block.innerHTML = editor_value;
+// document.querySelector('body').appendChild(block);
+var editor_value = block.textContent;
 
+// Gán event cho element được tạo ra, delegate element
+var toast = document.querySelector('.toast')
+toast.onclick = function(e) {
+	if (e.target.closest('.toast__close')) {
+		main.removeChild(toast)
+		clearTimeout(autoRemoveId)
+	}
+}
 
-
-
+// clear timeout
+const autoRemoveId = setTimeout(function() {
+	console.log(222)
+}, 3000)
+clearTimeout(autoRemoveId)
 
 
 

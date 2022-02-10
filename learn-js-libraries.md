@@ -7,6 +7,9 @@
 			- https://codemirror.net/demo/matchtags.html
 		- https://www.youtube.com/watch?v=o1DDWQDBT9Y
 		- dowload code: https://codemirror.net/codemirror.zip
+		- https://www.youtube.com/watch?v=wK2jmHWP6eU
+		- How to Create a Personal Online PHP Editor:
+			- https://phppot.com/php/how-to-create-a-personal-online-php-editor/
 
 - ace editor:
 	- https://ace.c9.io/
@@ -44,3 +47,7 @@
 
 - toastr: alert
 	- https://codeseven.github.io/toastr/demo.html
+
+- polyfill 
+	- chạy được html, css, js version trên trình duyệt cũ
+	- <script async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

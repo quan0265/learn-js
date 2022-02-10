@@ -34,6 +34,7 @@
 		objChild: {
 			name: 'Child Object',
 			methodChild() {
+				// this is objChild
 				console.log(this)
 			}
 		}
@@ -86,6 +87,8 @@
 
 <script type="text/javascript">
 	'use strict'
+
+	// thí trong hàm là undefined khi ở strict mode
 	function myFunc1() {
 		console.log(this)
 	}

@@ -12,6 +12,9 @@
 	- Comparion(so sánh)
 	- Logical(logic): &&, ||, !(not)
 
+- Operator prefix & Postfix (tiền tố và hậu tố), ++, --:
+	- 
+
 - Kiểu dữ liệu(data type):
 	1. Dữ liệu nguyên thủy -Primitive Data
 		- Number
@@ -575,3 +578,22 @@
 		- Thể hiện tính kế thừa (extends) trong OOP, Animal.call(this, name, weight)
 		- Mượn hàm (function borrowing), thêm ví dụ với arguments
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+- IFrame contentDocument:
+	- Trong ifram có 1 new #document html
+
+
+- promise, async, await:
+	- https://topdev.vn/blog/tat-tan-tat-ve-promise-va-asyncawait/

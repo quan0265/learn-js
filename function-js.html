@@ -76,6 +76,42 @@ function showEdit(obj, id_out, arr_pass=[]){
 // carts.push(cart);
 // carts.push(cart);
 // carts.push(cart);
+
+
+
+// random min max
+function randomMinMax(min, max) { 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function loadScript(src, callback) {
+    let s = document.createElement('script');
+    s.src = src;
+    s.onload = () => callback(s);
+    document.head.append(s);
+}
+
+// use Promise
+function loadScript(src, anonymous=false) {
+    return new Promise(function (resolve, reject) {
+        var s = document.createElement('script')
+        s.src = src
+        if (anonymous == 'anonymous') {
+            s.crossOrigin = 'anonymous'
+        }
+        s.onload = resolve
+        s.onerror = reject
+        document.head.appendChild(s)
+        console.dir(s)
+    })
+}
+/*  
+    async function loadFileJSfunction() { await loadScript }
+
+*/
+
+
+
 function hasCart(carts=[], cart={}){
     if(carts.length==0){
         return false;
@@ -243,8 +279,6 @@ $('#ss-detail .form-write-image-add input').onchange= function(){
 }
 
 
-
-
 // get tham số trên url hiện tại
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
@@ -263,10 +297,106 @@ function htmlentities_decode() {
     });
 }
 
-function htmlencode (str){
-  var div = document.createElement('div');
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
+// ajax use js
+
+var ajax = {};
+ajax.x = function () {
+    if (typeof XMLHttpRequest !== 'undefined') {
+        return new XMLHttpRequest();
+    }
+    var versions = [
+        "MSXML2.XmlHttp.6.0",
+        "MSXML2.XmlHttp.5.0",
+        "MSXML2.XmlHttp.4.0",
+        "MSXML2.XmlHttp.3.0",
+        "MSXML2.XmlHttp.2.0",
+        "Microsoft.XmlHttp"
+    ];
+
+    var xhr;
+    for (var i = 0; i < versions.length; i++) {
+        try {
+            xhr = new ActiveXObject(versions[i]);
+            break;
+        } catch (e) {
+        }
+    }
+    return xhr;
+};
+
+ajax.send = function (url, callback, method, data, async) {
+    if (async === undefined) {
+        async = true;
+    }
+    var x = ajax.x();
+    x.open(method, url, async);
+    x.onreadystatechange = function () {
+        if (x.readyState == 4) {
+            callback(x.responseText)
+        }
+    };
+    if (method == 'POST') {
+        x.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    }
+    x.send(data)
+};
+
+ajax.get = function (url, data, callback, async) {
+    var query = [];
+    for (var key in data) {
+        query.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
+    }
+    ajax.send(url + (query.length ? '?' + query.join('&') : ''), callback, 'GET', null, async)
+};
+
+ajax.post = function (url, data, callback, async) {
+    var query = [];
+    for (var key in data) {
+        query.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
+    }
+    ajax.send(url, callback, 'POST', query.join('&'), async)
+};
+
+
+function sendAjax(options) {
+    if (!options.method) {
+        options.method = 'GET';
+    }
+
+    var xhttp = new XMLHttpRequest() || ActiveXObject();
+    //Bat su kien thay doi trang thai cuar request
+    xhttp.onreadystatechange = function() {
+            //Kiem tra neu nhu da gui request thanh cong
+            if (this.readyState == 4 && (this.status == 200 || this.status == 201)) {
+                //In ra data nhan duoc
+                // console.log(this.responseText);
+                options.success(this.responseText);
+            }
+        }
+
+    if (options.method == 'get' || options.method == 'GET') {
+        var params = new URLSearchParams(options.data);
+        params = '?' + params.toString();
+        var url = options.url + params;
+        //cau hinh request
+        xhttp.open('GET', url, true);
+        //cau hinh header cho request
+        xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        //gui request
+        xhttp.send();
+    }
+    else {
+        var params = new URLSearchParams(options.data);
+        params = params.toString();
+        var url = options.url;
+        //cau hinh request
+        xhttp.open('POST', url, true);
+        //cau hinh header cho request
+        xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        //gui request
+        xhttp.send(params);
+    }
+
 }
 
 function htmldecode (str){
@@ -275,6 +405,17 @@ function htmldecode (str){
     return txt.value;
 }
 
+function htmlencode1 (str){
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+// check url
+function isUrl(string) {
+    var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+    return (res !== null)
+};
 
 
 </script>

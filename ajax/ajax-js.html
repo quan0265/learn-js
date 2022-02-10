@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+
+<body>
+    
+
+<button id="btn-get" >click get</button>
+<button id="btn-post" >click post</button>
+
+<!-- 
+	- link: 
+		- https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
+		- https://toidicode.com/ajax-trong-javascript-192.html
+ -->
+
+<script>
+
+	
+	var sendAjaxGet = function() {
+	    //Khoi tao doi tuong
+	    var xhttp = new XMLHttpRequest() || ActiveXObject();
+	    //Bat su kien thay doi trang thai cuar request
+	    xhttp.onreadystatechange = function() {
+	            //Kiem tra neu nhu da gui request thanh cong
+	            if (this.readyState == 4 && this.status == 200) {
+	                //In ra data nhan duoc
+	                console.log(this.responseText);
+	            }
+	        }
+	        //cau hinh request
+	    xhttp.open('GET', 'https://jsonplaceholder.typicode.com/users?key=a', true);
+	    //cau hinh header cho request
+	    xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	    //gui request
+	    xhttp.send();
+	}
+
+	var sendAjaxPost = function() {
+	    //Khoi tao doi tuong
+	    var xhttp = new XMLHttpRequest() || ActiveXObject();
+	    //Bat su kien thay doi trang thai cuar request
+	    xhttp.onreadystatechange = function() {
+	            //Kiem tra neu nhu da gui request thanh cong
+	            if (this.readyState == 4 && this.status == 200) {
+	                //In ra data nhan duoc
+	                console.log(this.responseText);
+	            }
+	        }
+	        //cau hinh request
+	    xhttp.open('POST', 'https://jsonplaceholder.typicode.com/posts', true);
+	    //cau hinh header cho request
+	    xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	    //gui request
+	    xhttp.send('fname=Henry&lname=Ford');
+	}
+
+
+
+	function sendAjax(options) {
+		if (!options.method) {
+			options.method = 'GET';
+		}
+
+		var xhttp = new XMLHttpRequest() || ActiveXObject();
+	    //Bat su kien thay doi trang thai cuar request
+	    xhttp.onreadystatechange = function() {
+	            //Kiem tra neu nhu da gui request thanh cong
+	            if (this.readyState == 4 && (this.status == 200 || this.status == 201)) {
+	                //In ra data nhan duoc
+	                // console.log(this.responseText);
+	                options.success(this.responseText);
+	            }
+	        }
+
+        if (options.method == 'get' || options.method == 'GET') {
+        	var params = new URLSearchParams(options.data);
+        	params = '?' + params.toString();
+        	var url = options.url + params;
+        	//cau hinh request
+		    xhttp.open('GET', url, true);
+		    //cau hinh header cho request
+		    xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		    //gui request
+		    xhttp.send();
+        }
+        else {
+        	var params = new URLSearchParams(options.data);
+        	params = params.toString();
+        	var url = options.url;
+        	//cau hinh request
+		    xhttp.open('POST', url, true);
+		    //cau hinh header cho request
+		    xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		    //gui request
+		    xhttp.send(params);
+        }
+
+	}
+
+	document.querySelector('#btn-get').onclick = function() {
+    	var ajax = {
+    		method: 'get',
+    		url: 'https://jsonplaceholder.typicode.com/users',
+    		data: {key: 'php'},
+    		success: function(res) {
+    			console.log(res);
+    		}
+    	}
+    	console.log(ajax);
+    	sendAjax(ajax);
+    }
+
+    document.querySelector('#btn-post').onclick = function() {
+    	var ajax = {
+    		method: 'post',
+    		url: 'https://jsonplaceholder.typicode.com/users',
+    		data: {key: 'php'},
+    		success: function(res) {
+    			console.log(res);
+    		}
+    	}
+    	console.log(ajax);
+    	sendAjax(ajax);
+    }
+
+</script>
+
+</body>
+
+</html>

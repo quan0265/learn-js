@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async await</title>
+</head>
+<body>
+
+<!-- 
+	- Load cả 2 file js cùng lúc, phải đợi cả 2 load xong thì mới chạy code tiếp
+ -->
+
+<script type="text/javascript">
+        function loadScript(src, anonymous=false) {
+            return new Promise(function (resolve, reject) {
+                var s = document.createElement('script')
+                s.src = src
+                if (anonymous == true) {
+                    s.crossorigin = 'anonymous'
+                }
+                s.onload = resolve
+                s.onerror = reject
+                document.head.appendChild(s)
+            })
+        }
+    
+    async function insertJsGoogleFacebook () {
+
+        var scripts = document.querySelectorAll('script')
+        var insert = true
+        scripts.forEach(function(item) {
+            if (item.src == 'https://apis.google.com/js/api:client.js') {
+                insert = false
+            }
+        })
+        if (insert == true) {
+            console.log(11)
+            await Promise.all([loadScript('https://apis.google.com/js/api:client.js'), loadScript('https://connect.facebook.net/en_US/sdk.js')])
+            console.log(22);
+        }
+    }
+
+    window.onload = function() {
+        insertJsGoogleFacebook()
+
+    }
+
+
+
+</script>
+
+
+<!-- <script defer="" src="https://apis.google.com/js/api:client.js"></script> -->
+<!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script> -->
+
+
+
+
+</body>
+</html>

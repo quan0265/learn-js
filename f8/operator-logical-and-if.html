@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>operator logical and if</title>
+</head>
+<body>
+	
+
+
+<script type="text/javascript">
+/**
+
+	- Hiểu hơn về câu lệnh điều kiện và phép so sánh
+
+	0, '', null, undefined, NaN, false khi convert sang boolean nó sẽ hiểu là false
+
+*/
+
+var a = 1;
+var b = 2;
+
+// Khi sử dụng toán tử && luôn đọc vế trái qua vế phải nếu giá trị bằng 1 trong 6 giá trị trên thì trả về giá trị đo ngược tiếp tục chuyển sang vế phải ... lấy giá trị cuối cùng
+
+console.log('A' && 'B' && null && 'C') // null
+
+console.log('A' && 'B' && 'C' && 0) // 0
+
+console.log('A' && 'B' && 'C') // C
+
+console.log(false && true) // false
+
+// Khi sử dụng toán tử || kiểm tra về đầu nếu khác 6 giá trị trển thì lấy luôn, còn không thì tiếp tục xét vế phải ...
+
+console.log(null || 'A') // A
+
+console.log('A' || 0) // A
+
+console.log(null || undefined) // undefined
+
+
+// Đảo ngược !, nếu !x, nếu x là 1 trong 6 giá trị trên trả về true ngược lại false
+console.log(!NaN) // true
+
+console.log(!0) // true
+
+console.log(!'A') // false
+
+console.log(!true) // false
+
+
+</script>
+
+</body>
+</html>
