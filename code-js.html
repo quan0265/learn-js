@@ -23,8 +23,39 @@ console.table(h1):
 // cho phép hiển thị dữ liệu dưới dạng bảng. Không chỉ dùng cho các dữ liệu dạng bảng, console.table() còn có thể đọc các thuộc tính của đối tượng phức tạp để hiển thị. Tất nhiên không thể thiếu, bạn có thể nhấn vào tiêu đề của một cột để table sắp xếp dữ liệu theo cột đó.
 
 // select element:
-// - chọn thể img-block bên ngoài img gần nhất
-document.querySelector('img').closest('.img-block');
+	// - chọn thể img-block bên ngoài img gần nhất
+	document.querySelector('img').closest('.img-block');
+
+
+var html = '<button class="button1">button 1</button>'
+// convert nodelist to array: 2 cách dùng spread operator, Array.prototype.slice()
+var images = document.querySelectorAll('img')
+var images_array = [...images]
+
+// Tìm index của element
+// - Dùng spread operator. findindex
+var index = [...images].findIndex((item) => item.getAttribute('src') === '1.jpg')
+
+// delegate 
+document.body.addEventListener('click', function(e) {
+	// Nếu click đúng là element .modal (child element không tính)
+	if (e.target.matches('.modal')) {}
+
+	// Nếu click đúng là element .modal (child element không tính)
+	if (e.target.classList.contains('.modal')) {}
+
+	// Nếu click element và tính cả child element bên trong
+	 if (e.target.closest('.modal')) {}
+})
+
+// Chèn html vào elemnt:
+	// insertAdjacentHTML
+		// beforebegin - phía trước element
+		// afterbegin - nằm phía trong element, đằng trước node con đầu tiên
+		// beforeend - nằm phía trong, đằng sau node con cuối cùng.
+		// afterend - nằm sau element.
+		document.body.insertAdjacentHTML('beforeend', html)
+
 
 
 // - Vòng đời của một trang HTML:
@@ -34,9 +65,6 @@ document.querySelector('img').closest('.img-block');
 // - load event - Tài nguyên đã được tải, như hình ảnh, css,...
 // - beforeunload event - Người dùng sẽ rời khỏi trang: chúng ta có thể kiểm tra xem người dùng có lưu các thay đổi hay không và hỏi họ xem họ có thực sự muốn rời đi không.
 // - unload event - người dùng gần như rời đi, nhưng chúng ta vẫn có thể bắt đầu một số thao tác, chẳng hạn như gửi số liệu thống kê.
-
-
-
 
 var beginTime = performance.now();
 console.log('Bắt đầu', beginTime);
@@ -58,9 +86,9 @@ window.onunload = function() {
 
 }
 
-// Ngăn chặn hành vi nổi bot mặc đinh: khi click vào đúng vào element có class modal (click vào các element con trong modal không tính)
-const modal = document.querySelector('modal')
-modal.addEventListener('click', function(e) {
+// Ngăn chặn hành vi nổi bot mặc đinh: gán sự kiên cho class modal, khi click vào các element trong class modal thì sự kiện click vào class modal cũng hoạt động. Trong class modal có element class modal-container, khi click vào modal-container thì sự kiện click vào modal không hoạt đông
+const modal_container = document.querySelector('modal-container')
+modal_container.addEventListener('click', function(e) {
 	e.stopPropagation()
 })
 
