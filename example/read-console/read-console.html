@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>read console chrome</title>
+</head>
+
+<body>
+    <button>button1</button>
+    <script>
+    function $(selector) {
+        return document.querySelector(selector);
+    }
+    // console.log($)
+
+    $('button').onclick = function() {
+        console.log(22);
+    }
+    // How to read from Chrome's console in JavaScript
+    // console.stdlog = console.log.bind(console);
+    // console.logs = [];
+    // console.log = function(){
+    //     console.logs.push(Array.from(arguments));
+    //     console.stdlog.apply(console, arguments);
+    // }
+
+    // console.defaultError = console.error.bind(console);
+    // console.errors = [];
+    // console.error = function(){
+    //     // default &  console.error()
+    //     console.defaultError.apply(console, arguments);
+    //     // new & array data
+    //     console.errors.push(Array.from(arguments));
+    // }
+
+    // console.defaultDebug = console.debug.bind(console);
+    // console.debugs = [];
+    // console.debug = function(){
+    //     // default &  console.debug()
+    //     console.defaultDebug.apply(console, arguments);
+    //     // new & array data
+    //     console.debugs.push(Array.from(arguments));
+    // }
+
+    ;
+    (function() {
+        if (console.everything === undefined) {
+            console.everything = [];
+
+            console.defaultLog = console.log.bind(console);
+            console.log = function() {
+                console.everything.push({ "type": "log", "datetime": Date().toLocaleString(), "value": Array.from(arguments) });
+                console.defaultLog.apply(console, arguments);
+            }
+            console.defaultError = console.error.bind(console);
+            console.error = function() {
+                console.everything.push({ "type": "error", "datetime": Date().toLocaleString(), "value": Array.from(arguments) });
+                console.defaultError.apply(console, arguments);
+            }
+            console.defaultWarn = console.warn.bind(console);
+            console.warn = function() {
+                console.everything.push({ "type": "warn", "datetime": Date().toLocaleString(), "value": Array.from(arguments) });
+                console.defaultWarn.apply(console, arguments);
+            }
+            console.defaultDebug = console.debug.bind(console);
+            console.debug = function() {
+                console.everything.push({ "type": "debug", "datetime": Date().toLocaleString(), "value": Array.from(arguments) });
+                console.defaultDebug.apply(console, arguments);
+            }
+        }
+    })
+
+    
+    ;(function() {
+        if (console.everything === undefined) {
+            console.everything = [];
+
+            function TS() {
+                return (new Date).toLocaleString("sv", { timeZone: 'UTC' }) + "Z"
+            }
+            window.onerror = function(error, url, line) {
+                console.everything.push({
+                    type: "exception",
+                    timeStamp: TS(),
+                    value: { error, url, line }
+                })
+                return false;
+            }
+            window.onunhandledrejection = function(e) {
+                console.everything.push({
+                    type: "promiseRejection",
+                    timeStamp: TS(),
+                    value: e.reason
+                })
+            }
+
+            function hookLogType(logType) {
+                const original = console[logType].bind(console)
+                return function() {
+                    console.everything.push({
+                        type: logType,
+                        timeStamp: TS(),
+                        value: Array.from(arguments)
+                    })
+                    original.apply(console, arguments)
+                }
+            }
+
+            ['log', 'error', 'warn', 'debug'].forEach(logType => {
+                console[logType] = hookLogType(logType)
+            })
+        }
+    })()
+
+    // window.onerror = function myErrorHandler(err, url, line) {
+    //     //Do some  stuff 
+    //     console.log(err, url, line) // Uncaught SyntaxError: Invalid or unexpected token at Line no:- 1
+    //     return false; // so you still log errors into console 
+    // }
+
+    //isDebug controls the entire site.
+    // var err = new Error();
+    // console.log(level + ': '+ msg + 'file: ' + err.fileName + ' line:' + err.lineNumber);
+
+    console.warn("This is a warning!");
+    console.error("This is a error!");
+    console.log(22);
+    console.log(a)
+    console.log(b)
+    </script>
+</body>
+
+</html>

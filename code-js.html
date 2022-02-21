@@ -9,6 +9,14 @@
 	
 const h1= document.querySelector('h1')
 
+// Rút gọn document.querySelector, document.querySelectorAll
+const $ = document.querySelector.bind(document)
+const $$ = document.querySelectorAll.bind(document)
+// or
+function S (selector) {
+	return document.querySelector(selector)
+}
+
 // hiển thị element
 console.log(h1)
 
