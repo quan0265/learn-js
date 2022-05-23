@@ -8,16 +8,21 @@
 </head>
 
 <body>
-    <button>button1</button>
+    <!-- 
+        - Làm compiler javascript
+            - https://stackoverflow.com/questions/13815640/a-proper-wrapper-for-console-log-with-correct-line-number
+            - https://stackoverflow.com/questions/19846078/how-to-read-from-chromes-console-in-javascript
+
+     -->
     <script>
     function $(selector) {
         return document.querySelector(selector);
     }
     // console.log($)
 
-    $('button').onclick = function() {
-        console.log(22);
-    }
+    // $('button').onclick = function() {
+    //     console.log(22);
+    // }
     // How to read from Chrome's console in JavaScript
     // console.stdlog = console.log.bind(console);
     // console.logs = [];
@@ -70,7 +75,7 @@
                 console.defaultDebug.apply(console, arguments);
             }
         }
-    })
+    })()
 
     
     ;(function() {
@@ -112,7 +117,7 @@
                 console[logType] = hookLogType(logType)
             })
         }
-    })()
+    })
 
     // window.onerror = function myErrorHandler(err, url, line) {
     //     //Do some  stuff 
@@ -129,6 +134,10 @@
     console.log(22);
     console.log(a)
     console.log(b)
+    </script>
+    
+    <script type="text/javascript">
+        console.log(console.everything)
     </script>
 </body>
 

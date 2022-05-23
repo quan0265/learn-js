@@ -11,18 +11,25 @@
 		- How to Create a Personal Online PHP Editor:
 			- https://phppot.com/php/how-to-create-a-personal-online-php-editor/
 
-- ace editor:
-	- https://ace.c9.io/
-	- build: https://github.com/ajaxorg/ace-builds/
-	- https://github.com/ajaxorg/ace
-	- https://ace.c9.io/build/kitchen-sink.html
-	- https://cdnjs.com/libraries/ace
-	- xem các ví dụ các hàm config file demo.js
-	- xem các thuộc tính, method: 
-		1. file ace.js -> nhấn phím ctrl + f config.defineOptions
-		2. https://ace.c9.io/#nav=api&api=editor click function
-		3. console.log(editor.renderer), console.log(editor)
-	- Get value of code: editor.getValue(), editor.session.getValue();
+	- ace editor:
+		- https://ace.c9.io/
+		- build: https://github.com/ajaxorg/ace-builds/
+		- https://github.com/ajaxorg/ace
+		- https://ace.c9.io/build/kitchen-sink.html
+		- https://cdnjs.com/libraries/ace
+		- xem các ví dụ các hàm config file demo.js
+		- xem các thuộc tính, method: 
+			1. file ace.js -> nhấn phím ctrl + f config.defineOptions
+			2. https://ace.c9.io/#nav=api&api=editor click function
+			3. console.log(editor.renderer), console.log(editor)
+		- Get value of code: editor.getValue(), editor.session.getValue();
+		- editor.setValue(value);
+		- editor.container.style.lineHeight = 1.4;
+
+	- manaco editor:
+		- Source: npm install monaco-editor
+		- examples: https://github.com/microsoft/monaco-editor/tree/main/samples
+		- docs: https://microsoft.github.io/monaco-editor/api/modules/monaco.html
 
 - upvotejs:
 	- https://github.com/janosgyerik/upvotejs
@@ -47,6 +54,10 @@
 
 - toastr: alert
 	- https://codeseven.github.io/toastr/demo.html
+
+- split panel:
+	- Phân vùng các khối, có thể thay đổi chiều dài hoặc chiều rộng thẻ div
+	- https://github.com/nathancahill/split/tree/master/packages/splitjs#installation
 
 - polyfill 
 	- chạy được html, css, js version trên trình duyệt cũ
